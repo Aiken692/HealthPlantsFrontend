@@ -6,13 +6,14 @@ import PlantManagement from './pages/PlantManagement';
 function App() {
   return (
     <>
-    <Router>
+    {/* <Router>
       <Switch>
         <Route path='/' exact component={PlantManagement} />
 
       </Switch>
 
-    </Router>
+    </Router> */}
+    <PlantManagement />
     </>
   );
 }
