@@ -6,7 +6,10 @@ import PlantManagement from './pages/PlantManagement';
 function App() {
   return (
     <>
+    <Router>
     <PlantManagement />
+
+    </Router>
     </>
   );
 }
