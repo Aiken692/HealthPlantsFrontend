@@ -7,7 +7,10 @@ function App() {
   return (
     <>
     <Router>
-    <PlantManagement />
+      <Switch>
+        <Route path='/' exact component={PlantManagement} />
+
+      </Switch>
 
     </Router>
     </>
