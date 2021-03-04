@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+  // users tables
+.tableStriped tbody tr:nth-of-type(odd) {
+    background: #CAFFCA;
+  }
+
+.table-hover{
+  cursor: pointer;
+}
+.Table{ //____ reviews table, plants table, 
+  padding-left: 2rem;
+  padding-right: 2rem;
+  // border: 1px solid red;
+  padding-top: 6rem;
+  transition: transform 0.6s;
+
+}
+
+.clientTable{
+  transition: transform 0.6s ease-in-out;
+  display: none;
+}
+
+.AdminTable{
+  transition: transform 0.6s ease-in-out;
+  top: 0;
+  margin-top: 0;
+}
+
+.togler{
+  margin-top: 2rem;
+  position: absolute;
+  margin-left: 84%;
+}
+#user-toggler{
+  display: none;
+}
+.switch{
+  position: relative;
+  width: 5.1rem;
+  height: 2.5rem;
+  padding: .3rem;
+  border-radius: 5rem;
+  background:#007000;
+  cursor: pointer;
+  margin-left: 88%;
+  
+}
+.slider{
+  position: absolute;
+  background-color:  #CAFFCA;
+  transform: .4s;
+  border-radius: 50%;
+  height: 2.1rem;
+  width: 2.1rem;
+  left: -1.2rem;
+  // bottom: 1.5rem;
+  top: .2rem;
+}
+
+#user-toggler:checked + label .slider{
+  transform: translateX(2.5rem);
+}
+
+#user-toggler:checked ~ .clientTable{
+  display: block;
+}
+
+#user-toggler:checked ~ .AdminTable{
+  display: none;
+}
+
+
+.addUserModal, .editUserModal, .delUserModal{
+  padding-top: 10%;
+  color: black;
+
+  .modalHeader{
+    padding-left: 30%;
+  }
+  form{
+    padding: 1.5rem;
+    padding-top: 0;
+    input{
+      padding: 1.5rem;
+      font-size: 1rem;
+    }
+    label{
+      padding-top: .9rem;
+    }
+  }
+  .modalFooter{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-left: 1.2rem;
+    border: none;
+    width: 100%;
+    .add{
+    
+      background-color: #CAFFCA;
+      color: black;
+      border: none;
+    }
+    .cancel{
+      background-color: #CB5555;
+      color: black;
+      border: none;
+    }
+  }
+}
+.delUserModal{
+  .modalFooter{
+    margin-top: 0;
+  }  
+}
+
+//_________ reviews table
+.reviewsTable{
+  margin-top: .5rem;
+}
+
+.viewReviewModal{
+  padding-top: 5%;
+  .reviewContainer{
+    // width: 78vw;
+    min-height: 100vh;
+    background-color: #CAFFCA;
+    border-radius: .2rem;
+    // border:1px solid red;
+    .review{
+      height: auto;
+      padding-bottom: 2rem;
+      padding-left: 5rem;
+      padding-right: 5rem;
+      background-color: #fff;
+      width: 100%;
+      .reviewFooter{
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid;
+        padding-top: 1rem;
+      }
+    }
+    .reviewComments{
+      padding-left: 5rem;
+      padding-right: 5rem;
+      padding-top: 2rem;
+      .singleComment{
+        border-bottom: 1px solid;
+        padding: 1rem;
+        padding-top: 0;
+        padding-left: 0; 
+        margin-bottom: 1rem;
+      }
+      .viewAll{
+        color: #007000;
+        margin-left: 80%;
+        cursor: pointer;
+      }
+    }
+  }
+  .reviewHeader{
+    border: none;
+    padding-left: 0;
+    background: #fff;
+    // padding: 0;
+  }
+  .name, .remedy{
+    color: #007000;
+    font-weight: bolder;
+    font-size: 1rem;
+  }  
+  .reviewd, .date{
+    font-size: .9rem;
+    color:#837A7A ;
+    font-weight: lighter;
+  }
+}
+
+
+//________________ plants table
+.plants-table{
+  border: none;
+}
+
+.plant{
+  img{
+    margin-bottom: 2rem;
+  }
+  button{
+    margin: .5rem;
+    padding: .5rem;
+    width: 80%;
+    background-color: #CAFFCA;
+    border-radius: 5px;
+    border: none;
+  }
+}
+
+.plantReview{
+  padding-left: 2rem;
+}
+
+.plantImage{
+  width: 10rem;
+  height: 10rem;
+  border-radius: 5px;
+  border: 1px red solid;
+}
+
+.appMain{
+  margin-left: 18.2%;
+  width: 80%;
+  // border: 1px solid red;
+  // Header{
+  //   width: 82%;
+  // }
+}
+@media only screen and (max-width: 1200px){
+  .main-content{
+      margin-left: 38px;
+  }
+  .appMain{
+    margin-left: 36px;
+    width: calc(100% - 36px);
+    // Header{
+    //   width: 100%;
+    // }
+  }
+}
+
+
+// .userDetail{ // details modal
+//   min-height: 100vh;
+// }

@@ -1,0 +1,23 @@
+.jointCadiac{
+    // background-color: red;
+    a{
+        text-decoration: none;
+    }
+    .card{
+        cursor: pointer;
+    }
+    .card-title{
+        color: #007000;
+    }
+    .card-footer{
+        background: #caffca;
+    }
+    .viewAll{
+        padding-top: 6rem;
+        // background-color: black;
+        margin-left: .5rem;
+        &:hover{
+            color: #007000;
+        }        
+    }
+}
