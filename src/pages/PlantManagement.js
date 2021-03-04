@@ -7,7 +7,7 @@ function PlantManagement(){
 
     return(
         <>
-            <Sidebar/>
+            {/* <Sidebar/> */}
            <div className="appMain">
                {/* <Header title="PLANTS"/> */}
                <Table />
