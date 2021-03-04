@@ -1,6 +1,6 @@
 import React from 'react'
-import styled, {css} from 'styled-components/macro';
-import Jamie from '../images/Jamie.jpg'
+import styled from 'styled-components/macro';
+import Jamie from '../Images/Jamie.jpg'
 
 
 
@@ -15,7 +15,7 @@ const Container = styled.div`
     padding: 3rem clac((100vw -1300px) / 2);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 800px;
+    
 
     @media screen and (max-width: 768px){
         grid-template-columns: 1fr; 
@@ -26,7 +26,7 @@ const ColumnLeft = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    lineheight: 1.4;
+    line-height: 1.4;
     padding: 1rem 2rem;
     order: ${({reverse}) => (reverse ? '2' : '1')};
 
@@ -37,6 +37,9 @@ const ColumnLeft = styled.div`
     p {
         margin-bottom: 2rem;
     }
+    @media screen and (max-width: 768px) {
+    padding:0 4rem;
+}
 `;
 
 

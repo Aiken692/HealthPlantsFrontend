@@ -1,6 +1,6 @@
-import { FaFacebook, FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube} from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube} from 'react-icons/fa';
 import React from 'react';
-import {Button }from './navBar/button';
+import {Button }from './Navbar/button';
 import {Link} from 'react-router-dom';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import styled, { css } from 'styled-components/macro';

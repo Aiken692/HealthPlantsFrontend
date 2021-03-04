@@ -1,7 +1,8 @@
 import React, {useEffect, useState } from 'react';
 import styled from 'styled-components';
-import fruit from '../../images/fruit.jpg';
 import Axios from 'axios';
+import Jamie from "../../Images/Jamie1.JPG";
+import { Link } from 'react-router-dom';
 
 // Importing the cad component.
 import { Card } from "react-bootstrap"; 
@@ -27,33 +28,33 @@ function Container(props){
     const [plants, setPlants] = useState([]);
 
     // Walters Mock array to loop through.
-    const cardInfo = [
-        {image: "https://images.unsplash.com/photo-1544437353-90c5b0daf035?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fG9yYW5nZXxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Lemon", text: "Lemons are good for cough"},
-        {image: "https://images.unsplash.com/photo-1553279768-865429fa0078?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFuZ298ZW58MHwwfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Mango", text: "Mangoes very nice test"},
-        {image: "https://images.unsplash.com/photo-1612215047504-a6c07dbe4f7f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fGF2YWNhZG98ZW58MHwwfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Avacado", text: "Tests good on food"},
-        {image: "https://images.unsplash.com/photo-1590860778102-9f6efbc92495?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjJ8fGJhbmFuYXxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Banana", text: "Best yello fruit"},
-        {image: "https://images.unsplash.com/photo-1589984662646-e7b2e4962f18?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8d2F0ZXJtZWxvbnxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Water Melon", text: "Adds water in the body"},
-        {image: "https://images.unsplash.com/photo-1592559768223-21be22564b28?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fHBpbmVhcHBsZXxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Pineapple", text: "I love the test of pineapple"},
-        {image: "https://images.unsplash.com/photo-1533893662125-43c54ffa3b41?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzN8fGZydWl0c3xlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Apple", text: "Very delicious"}, 
-        {image: "https://images.unsplash.com/photo-1544437353-90c5b0daf035?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fG9yYW5nZXxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Lemon", text: "Lemons are good for cough"},
-    ];
+    // const cardInfo = [
+    //     {image: "https://images.unsplash.com/photo-1544437353-90c5b0daf035?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fG9yYW5nZXxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Lemon", text: "Lemons are good for cough"},
+    //     {image: "https://images.unsplash.com/photo-1553279768-865429fa0078?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFuZ298ZW58MHwwfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Mango", text: "Mangoes very nice test"},
+    //     {image: "https://images.unsplash.com/photo-1612215047504-a6c07dbe4f7f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fGF2YWNhZG98ZW58MHwwfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Avacado", text: "Tests good on food"},
+    //     {image: "https://images.unsplash.com/photo-1590860778102-9f6efbc92495?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjJ8fGJhbmFuYXxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Banana", text: "Best yello fruit"},
+    //     {image: "https://images.unsplash.com/photo-1589984662646-e7b2e4962f18?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8d2F0ZXJtZWxvbnxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Water Melon", text: "Adds water in the body"},
+    //     {image: "https://images.unsplash.com/photo-1592559768223-21be22564b28?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fHBpbmVhcHBsZXxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Pineapple", text: "I love the test of pineapple"},
+    //     {image: "https://images.unsplash.com/photo-1533893662125-43c54ffa3b41?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzN8fGZydWl0c3xlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Apple", text: "Very delicious"}, 
+    //     {image: "https://images.unsplash.com/photo-1544437353-90c5b0daf035?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fG9yYW5nZXxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", title: "Lemon", text: "Lemons are good for cough"},
+    // ];
 
-    //Walter's card render function
+    // //Walter's card render function
 
-    const renderCard = (card, index) => {
-        return (
-            <Card style={{ width: '18rem' }} key={index}>
-                <Card.Img variant="top" src="holder.js/100px180" src={card.image}/>
-                <Card.Body>
-                    <Card.Title>{card.title}</Card.Title>
-                    <Card.Text>
-                    {card.text}
-                    </Card.Text>
+    // const renderCard = (card, index) => {
+    //     return (
+    //         <Card style={{ width: '17rem' }} key={index}>
+    //             <Card.Img variant="top" src="holder.js/100px180" src={card.image}/>
+    //             <Card.Body>
+    //                 <Card.Title>{card.title}</Card.Title>
+    //                 <Card.Text>
+    //                 {card.text}
+    //                 </Card.Text>
                     
-                </Card.Body>
-            </Card>
-        )
-    }
+    //             </Card.Body>
+    //         </Card>
+    //     )
+    // }
 
 
 
@@ -79,19 +80,25 @@ function Container(props){
 
             <div>
                     
-
-                        <Card style={{ width: '18rem' }} >
-                            <Card.Img variant="top" src="holder.js/100px180" src={plant_image} alt="img here"/>
+                
+                        <Card style={{ width: '17rem' }} >
+                            <Link to={`/plant/${plant_id}`}>
+                            <   Card.Img variant="top" src="holder.js/100px180" src={plant_image} alt="img here"/>
+                            </Link>
+                            
                             <Card.Body>
                                 <Card.Title>{plant_common_name}</Card.Title>
                                 <h5 class="card-title">{plant_latin_name}</h5>
                                 <Card.Text>
                                 {plant_description}
                                 </Card.Text>
-                                <p class="card-text"><small class="text-muted"><a href="#">Read more...</a></small></p>
+                                <Link to={`/plant/${plant_id}`}>Read More...</Link>
+                                
                                 
                             </Card.Body>
                         </Card>
+                
+                        
             </div>
 
 
@@ -128,7 +135,7 @@ function Container(props){
     //     return plants && plants.map(({plant_id, plant_common_name, plant_latin_name, plant_image, plant_description}) => {
     //         return (
 
-    //         <div class="row row-cols-1 row-cols-md-3 g-4">
+            
     //                     <div class="col">
     //                         <div class="card">
     //                         <img src={plant_image} class="card-img-top" alt="img here" />
@@ -140,7 +147,7 @@ function Container(props){
     //                             </div>
     //                         </div>
     //                     </div>
-    //         </div>
+            
 
 
     //         )
@@ -171,14 +178,13 @@ function Container(props){
                     <div class="row row-cols-1 row-cols-md-3 g-4">
 
 
-                        {cardInfo.map(renderCard)}
+                        {/* {cardInfo.map(renderCard)} */}
                         {renderBody()}
                         
 
                        
                     </div>
                 </div>
-
             </ContainerOne>
         </Section>
     )

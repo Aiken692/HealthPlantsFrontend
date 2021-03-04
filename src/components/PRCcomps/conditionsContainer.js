@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import fruit from '../../images/fruit.jpg'
+import fruit from '../../Images/fruit.jpg'
 import '../styles/conditions.scss';
 
 const Section = styled.section`

@@ -1,6 +1,6 @@
-import styled, {css} from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import React from 'react';
-import {Button } from './navBar/button'
+import {Button } from './Navbar/button'
 
 const Section = styled.section`
     width: 100%;

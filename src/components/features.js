@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import {Button }from './navBar/button';
-import ImageOne from '../images/image-6.jpg'
+import {Button }from './Navbar/button';
+import ImageOne from '../Images/image-6.jpg'
 
 const Section = styled.section`
     background: #000d1a;

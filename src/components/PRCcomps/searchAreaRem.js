@@ -1,5 +1,4 @@
 import React from 'react'
-import DRI from '../../images/tea1.jpg'
 import styled from 'styled-components';
 
 const Section = styled.section`

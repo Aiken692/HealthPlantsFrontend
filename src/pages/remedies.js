@@ -1,11 +1,9 @@
-import React, {useLayoutEffect, useEffect,useState} from 'react';
-import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom'
+import React, {useLayoutEffect, useEffect,useState} from 'react'
+import Dropdown from '../components/Dropdown';
+import Navbar from '../components/Navbar/Navbar';
+import { useLocation } from 'react-router-dom'
 import Aos from 'aos';
-import styled from 'styled-components';
-import { isStyledComponent } from 'styled-components';
-import Dropdown from '../components/dropdown';
-import Navbar from '../components/navBar/navBar';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 import SearchArea from '../components/PRCcomps/searchAreaRem';
 import GloballStyle from '../globalStyles';
 import Continer from '../components/PRCcomps/container';

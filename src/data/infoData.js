@@ -1,5 +1,5 @@
-import ImageOne from '../images/palnt1.jpg'
-import imageTwo from '../images/Jamie.jpg'
+import ImageOne from '../Images/palnt1.jpg'
+import imageTwo from '../Images/Jamie.jpg'
 
 export const InfoData = {
     heading: 'Plants',

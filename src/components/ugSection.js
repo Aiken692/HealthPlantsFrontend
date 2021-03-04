@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro';
-import ImageOne from '../images/uganda.jpg'
+import ImageOne from '../Images/uganda.jpg'
 
 const Section = styled.section`
     padding: 12rem 0rem;
@@ -34,16 +34,17 @@ const ColumnLeft = styled.div`
 
 const ColumnRight = styled.div`
     position: absolute;
-    top: -10%;
+    margin-top: 20%;
+    top: 0%;
     right: 0;
     max-width: 850px;
-    height: 140%;
+    height: 130%;
     width: 45%;
     padding-left: 1rem;
 
     @media screen and (max-width: 768px) {
         height: 320px;
-        top: -65px;
+        top: 3px;
         width: 80%;
         margin: 0 auto;
         left: 0;
@@ -74,7 +75,7 @@ const Content = styled.div`
 
 
 const Image = styled.img`
-    height: 30%;
+    height: 45%;
     width: 100%;
     object-fit: cover;
 `;
@@ -113,17 +114,9 @@ const UgSection = () => {
 
 
                             </p>
-                            
-                                </Content>
-                    </ColumnLeft>
-                    <ColumnRight>
-                        <Image src={ImageOne}
-                        data-aos='fade-right'
-                        data-aos-duration='1200'
-                        data-aos-once='true'
-                        data-aos-anchor-placement='center bottom'
-                        />
-                        <p
+
+
+                            <p
                         data-aos='fade-right'
                         data-aos-duration='1200'
                         data-aos-once='true'
@@ -140,6 +133,17 @@ const UgSection = () => {
                         main part of its flow northwards, throughout northern Uganda, and beyond across the Sahara desert,
                         eventually emptying into the Mediterranean Sea. The area of the “source” at Lake Victoria, Jinja, is
                         one such highly fertile area in Uganda, and because of the Biblical asso</b></p>
+                            
+                                </Content>
+                    </ColumnLeft>
+                    <ColumnRight>
+                        <Image src={ImageOne}
+                        data-aos='fade-right'
+                        data-aos-duration='1200'
+                        data-aos-once='true'
+                        data-aos-anchor-placement='center bottom'
+                        />
+                        
                     </ColumnRight>
                 </Wrap>
             </Container>

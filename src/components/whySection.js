@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro';
 
-import TeaOne from '../images/image-7.jpg' 
+import TeaOne from '../Images/image-7.jpg' 
 
 
 
@@ -29,6 +29,9 @@ const Heading = styled.div`
 
     @media screen and (max-width: 768px) {
         text-align: start;
+        margin-bottom:0rem;
+        padding-bottom:0;
+        /* background:red; */
     }
 
 `;
@@ -42,11 +45,21 @@ const InfoRow = styled.div`
     }
 `;
 
+const P = styled.p`
+text-align:center;
+padding-right:6rem;
+padding-left:6rem;
+font-size:large;
+font-style:italic;
+`;
+
 
 const InfoWrap = styled.div`
     padding: 0rem 1rem;
-    min-height: 550px;
-    height: 100%;
+    padding-left:2rem;
+    padding-right:2rem;
+    /* min-height: 550px; */
+    height: auto;
     width: 50%;
 
     h2 {
@@ -56,6 +69,7 @@ const InfoWrap = styled.div`
 
     @media screen and (max-width: 768px){
         margin-bottom: 1rem;
+        width:100%;
     }
 `;
 
@@ -89,7 +103,7 @@ const WhySection = () => {
                     data-aos-anchor-placement='center bottom'
                     >Why health plants?</h1>
                 </Heading>
-                <InfoRow>
+                <InfoRow className="row">
                     <InfoWrap
                     data-aos='zoom-out-down'
                     data-aos-duration='1200'
@@ -131,9 +145,9 @@ const WhySection = () => {
                        
                     </InfoWrap>
                 </InfoRow>
-                <p><b>This website seeks to change that by offering website visitors an easy way to explore and exchange
+                <P><b>This website seeks to change that by offering website visitors an easy way to explore and exchange
                         views on the health properties of different plants, their constituent parts (fruits, leaves, roots, bark)
-                        and their associated “remedies”.</b></p>
+                        and their associated “remedies”.</b></P>
             </Container>
         </Section>
     )

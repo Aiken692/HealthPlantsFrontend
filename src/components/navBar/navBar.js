@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled, {css} from 'styled-components/macro';
-import './navBar.css';
+import './Navbar.css';
 // import { Link } from 'react-router-dom';
 // import AppBar from '@material-ui/core/AppBar'
 // import ToolBar from '@material-ui/core/Toolbar'
@@ -9,7 +9,7 @@ import './navBar.css';
 
 //  BrowserRouter as Router, Switch, Route,
 import { Link, useLocation } from 'react-router-dom';
-import { menuData } from '../../data/menuData';
+import { menuData } from '../../data/MenuData';
 import {  AiOutlineBars } from "react-icons/ai";
 import {IoPersonCircleOutline} from "react-icons/io5";
 
