@@ -1,0 +1,315 @@
+// .base-container {
+//     width: 100%;
+//     display: flex;
+//     align-items: center;
+//     flex-direction: column;
+
+
+// }
+
+// .content {
+//     display: flex;
+//     flex-direction: column;
+
+// }
+
+
+// .image {
+//     width: 21em;
+//     img{
+//         width: 100%;
+//         height: 100%;
+//     }
+// }
+
+
+
+
+// .form {
+//     margin-top: 2em;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+    
+// }
+
+// .form-group{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     width: fit-content;
+//     label {
+//         font-size: 20px;
+//     }
+
+   
+// }
+// .header {
+//     font-size: 24px;
+//     font-family: "Open Sans", sans-serif;
+// }
+
+// input {
+//     margin-top: 6px;
+//     min-width: 18em;
+//     height: 37px;
+//     padding: 0px 10px;
+//     font-size: 16px;
+//     font-family: 'Open Sans' sans-serif;
+//     border: 0;
+//     background-color: #f3f3f3;
+//     border-radius: 4px;
+//     margin-bottom: 31px;
+//     transition: all 250ms ease-in-out;
+//     &:focus {
+//         outline: none;
+//         box-shadow: 0px 0px 12px 0.8px #0e81ce96;
+//     }
+// }
+
+// .footer {
+//     margin-top: 3em;
+// }
+
+// .btn {
+//     font-size: 21px;
+//     padding: 5px 20px;
+//     border: 0;
+//     background-color: #3498db;
+//     color: #fff;
+//     border-radius: 3px;
+//     cursor: pointer;
+//     transition: all 2550ms ease-in-out;
+//     &:hover {
+//         background-color: #2386c8;
+//     }
+//     &:focus{
+//         outline: none;
+//     }
+// }
+
+//////////////////////////////////////////////////////////////////
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+// ______ variables
+$bkg: #f6f5f7;
+$btn-color: #007000;
+$btn-color-lighter: #34d334;
+$a: #333;
+
+// *{
+//     padding: 0;
+//     margin: 0;
+//     box-sizing: border-box;
+// }
+// .here{
+//     color: $btn-color;
+// }
+// body{
+//     font-family: 'Montserrat', sans-serif;
+//     background: $bkg;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100vh;
+//     margin: 20px 0 50px;
+//     h1{
+//         font-weight: bold;
+//         margin: 0;
+//     }
+//     p{
+//         font-size: 14px;
+//         font-weight: 100;
+//         line-height: 20px;
+//         letter-spacing: 0.5px;
+//         margin: 20px 0 30px;
+//     }
+
+//     span{
+//         font-size: 12px;
+//     }
+//     a{
+//         // color: $a;
+//         font-size: 14px;
+//         text-decoration: none;
+//         margin: 15px 0;
+//     }
+// }
+
+// .Container{
+//     background: #fff;
+//     border-radius: 10px;
+//     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+//             0 10px 10px rgba(0,0,0,0.22);
+//     position: relative;
+//     overflow: hidden;
+//     width: 768px;
+//     max-width: 100%;
+//     min-height: 480px;
+// }
+
+// .formContainer{
+//     position: absolute;
+//     top: 0;
+//     height: 100%;
+//     transition: all 0.6s ease-in-out;
+//     form{
+//         background: #fff;
+//         display: flex;
+//         flex-direction: column;
+//         padding: 0 50px;
+//         height: 100%;
+//         justify-content: center;
+//         align-items: center;
+//         text-align: center;
+
+//         .social-container{
+//             margin: 20px 0;
+//             a{
+//                 border: 1px solid #ddd;
+//                 border-radius: 50%;
+//                 display: inline-flex;
+//                 justify-content: center;
+//                 align-items: center;
+//                 margin: 0 5px;
+//                 height: 40px;
+//                 width: 40px;
+//             }
+//         }
+//         input{
+//             background: #eee;
+//             border: none;
+//             padding: 12px 25px;
+//             margin: 8px 0;
+//             width: 100%;
+//         }
+//     }
+// }
+
+// button{
+//     border-radius: 20px;
+//     border: 1px solid $btn-color;
+//     background: $btn-color;
+//     color: #fff;
+//     font-size: 12px;
+//     font-weight: bold;
+//     padding: 12px 45px;
+//     letter-spacing: 1px;
+//     text-transform: uppercase;
+//     transition: transform 80ms ease-in;
+//     &:active{
+//         transform: scale(0.95);
+//     }
+//     &:focus{
+//         outline: none;
+//     }
+//     &.ghost{
+//         background: transparent;
+//         border-color: #fff;
+//     }    
+// }
+
+// button
+
+.signinContainer{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+    // display: none;
+    // color: red;
+} 
+
+.rightContainer{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+
+.overlayContainer{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+
+    .overlay{
+        background: $btn-color;
+        background: linear-gradient(to right, $btn-color, $btn-color-lighter);
+        // background: linear-gradient(to right, #FF4B2B, #FF416C) no-repeat 0 0 / cover;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+        color: #fff;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+    }
+}
+
+.overlayPanel{
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlayRight{
+    right: 0;
+    transform: translateX(0);
+}
+
+.overlayLeft{
+    transform: translateX(-20%);
+}
+
+// _____ animation
+
+// _____ move signin to right
+.container.rightPanelActive .signinContainer{
+    transform: translateX(100%);
+}
+
+// _____ move overlay to left
+.container.rightPanelActive .overlayContainer{
+    transform: translateX(-100%);
+}
+
+// _____ bring singup over sign in
+.container.rightPanelActive .rightContainer{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    // animation: show 0.6s;
+}
+
+// ____ mover overlay back to right
+.container.rightPanelActive .overlay{
+    transform: translateX(50%);
+}
+
+.container.rightPanelActive .overlayLeft{
+    transform: translateX(0);
+}
+
+.container.rightPanelActive .overlayRight{
+    transform: translateX(20%);
+}
+
