@@ -36,7 +36,7 @@ function ReviewTable(){
     const [reviews, setReviews] = useState([]);
 
     const getData = async () => {
-        let url ='http://localhost:5000/api/reviews';
+        let url ='http://localhost:5001/api/reviews';
 
         const response = await Axios.get(url);
         // console.log('response', response);

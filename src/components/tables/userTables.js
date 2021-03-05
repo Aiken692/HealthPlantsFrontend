@@ -55,7 +55,7 @@ function UserTable( props ){
 
 
     const getData = async () => {
-        let url ='http://localhost:5000/api/users';
+        let url ='http://localhost:5001/api/users';
 
         const response = await Axios.get(url);
         // console.log('response', response);
