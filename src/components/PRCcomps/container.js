@@ -60,7 +60,7 @@ function Container(props){
 
 
     const getData = async () => {
-        let url ='http://localhost:5000/api/plants';
+        let url ='http://localhost:5001/api/plants';
 
         const response = await Axios.get(url);
         // console.log('response', response);
