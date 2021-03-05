@@ -1,15 +1,12 @@
-import React, {useLayoutEffect, useEffect,useState} from 'react'
-import Dropdown from '../components/Dropdown';
-import Navbar from '../components/Navbar/Navbar';
-import { useLocation } from 'react-router-dom'
+import React, {useLayoutEffect, useEffect,useState} from 'react';
+import {  useLocation } from 'react-router-dom'
 import Aos from 'aos';
-// import styled from 'styled-components';
-// import { isStyledComponent } from 'styled-components';
-import Footer from '../components/Footer';
+import Dropdown from '../components/dropdown';
+import Navbar from '../components/navBar/navBar';
+import Footer from '../components/footer';
 import SearchArea from '../components/PRCcomps/searchAreaCardiac';
 import GloballStyle from '../globalStyles';
-// import Continer from '../components/PRCcomps/container';
-import Details from '../components/PRCcomps/details/jointCardicaDetail';
+import Continer from '../components/PRCcomps/container';
 
 
 function Cardiac() {
@@ -40,7 +37,7 @@ function Cardiac() {
             <Navbar toggle={toggle}/>
             <Dropdown isOpen={isOpen} toggle={toggle}/>
             <SearchArea />
-            <Details />
+            <Continer pageName="Cardiac"/>
             <Footer/>
         </>
     )

@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
-import Jamie from "../../Images/Jamie1.JPG";
+import Jamie from "../../images/Jamie1.JPG";
 import { Link } from 'react-router-dom';
 
 // Importing the cad component.

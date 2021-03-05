@@ -1,7 +1,7 @@
 import React from 'react';
-import Table from '../components/Tables/table';
-import Sidebar from '../components/Sidebar/Sidebar';
-import Header from '../components/Header';
+import Table from '../components/tables/table';
+import Sidebar from '../components/sideBar/sideBar';
+import Header from '../components/header';
 import '../components/styles/componentStyles.scss';
 
 function PlantManagement(){

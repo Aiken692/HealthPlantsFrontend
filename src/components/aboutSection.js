@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro';
-import Jamie from '../Images/Jamie.jpg'
+import Jamie from '../images/Jamie.jpg'
 
 
 

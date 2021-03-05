@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro';
-import ImageOne from '../Images/uganda.jpg'
+import ImageOne from '../images/uganda.jpg'
 
 const Section = styled.section`
     padding: 12rem 0rem;

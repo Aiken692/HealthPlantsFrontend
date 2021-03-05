@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { MenuItems } from './MenuItems';
-import './Sidebar.css';
+import { MenuItems } from './menuItems';
+import './sideBar.css';
 import { Link } from 'react-router-dom';
 
 

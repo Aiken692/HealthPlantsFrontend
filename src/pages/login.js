@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './login.scss';
+import classes from '../components/login/login.scss';
 import styled from 'styled-components';
 
 //____ body

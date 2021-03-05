@@ -1,15 +1,15 @@
-import React, {useState, useEffect, useLayoutEffect} from 'react'
-import { useLocation } from 'react-router-dom'
+import React, {useState, useEffect, useLayoutEffect} from 'react';
+import { useLocation } from 'react-router-dom';
 import Aos from 'aos';
-import GloballStyle from '../globalStyles'
-import Dropdown from '../components/Dropdown'
-import Navbar from '../components/Navbar/Navbar'
+import Dropdown from '../components/dropdown';
+import Navbar from '../components/navBar/navBar';
 import styled from 'styled-components/macro';
-import Footer from '../components/Footer'
-import Logo from '../Images/logo.jpeg'
-import AboutSection from '../components/AboutSection';
-import WhySection from '../components/WhySection';
-import UgSection from '../components/UgSection';
+import Footer from '../components/footer';
+import AboutSection from '../components/aboutSection';
+import WhySection from '../components/whySection';
+import UgSection from '../components/ugSection';
+import Logo from '../images/logo.jpeg';
+import GloballStyle from '../globalStyles';
 
 
 const Section = styled.section`

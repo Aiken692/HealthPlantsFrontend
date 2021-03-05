@@ -1,7 +1,7 @@
 import React from 'react';
-import Sidebar from '../components/Sidebar/Sidebar';
-import Header from '../components/Header';
-import UserTable from '../components/Tables/userTables';
+import Sidebar from '../components/sideBar/sideBar';
+import Header from '../components/header';
+import UserTable from '../components/tables/userTables';
 import '../components/styles/componentStyles.scss';
 
 function UserManagement(){

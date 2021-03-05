@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
 import { Paper, makeStyles, TableBody, TableRow, TableCell, Toolbar, InputAdornment } from '@material-ui/core';
-import Header from '../components/Header'
-import PageHeader from '../components/PageHeader';
-import RemediesForm from './RemediesForm';
+import Header from '../components/header';
+import PageHeader from '../components/pageHeader';
+import RemediesForm from './remediesForm';
+import useTable from "../components/useTable";
+import * as List from "../pages/list/list";
+import Controls from '../components/controls/control';
+import Popup from "../components/popup";
+import Sidebar from '../components/sideBar/sideBar';
+import '../components/styles/componentStyles.scss';
 import * as FaIcons from "react-icons/fa";
-import useTable from "../components/useTable"
-import * as List from "../Pages/List/list"
-import Controls from '../components/controls/Control'
-import { Search} from '@material-ui/icons'
-import AddIcon from '@material-ui/icons/Add'
-import DeleteIcon from '@material-ui/icons/Delete'
-import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
-import Popup from "../components/Popup";
-import Sidebar from '../components/Sidebar/Sidebar';
+import { Search} from '@material-ui/icons';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import VisibilityIcon from '@material-ui/icons/VisibilityOutlined';
 import green from '@material-ui/core/colors/green';
-import '../components/styles/componentStyles.scss';
 
 import Axios from 'axios';
 import { useEffect } from 'react';

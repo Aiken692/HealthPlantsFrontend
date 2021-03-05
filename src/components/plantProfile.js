@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
+import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import styled from 'styled-components';
 import GloballStyle from '../globalStyles';
-import Navbar from './Navbar/Navbar';
-import Dropdown from './Dropdown';
-import Footer from './Footer';
-import { useParams } from 'react-router-dom';
+import Navbar from './navBar/navBar';
+import Dropdown from './dropdown';
+import Footer from './footer';
 
 // asbhdsds
 const Section = styled.section`

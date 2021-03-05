@@ -1,26 +1,26 @@
 import React from 'react';
-import 'aos/dist/aos.css'
+import 'aos/dist/aos.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Conditions from './Pages/Conditions';
-import Remedies from './Pages/Remedies';
-import RemedyManagement from './Pages/RemedyManagement';
-import PlantManagement from './Pages/PlantManagement';
-import ConditionManagement from './Pages/ConditionsManagement';
-import Cardiac from './Pages/Cardiac';
-import CardiacDetail from './Pages/CardiacDetail';
-import Joint from './Pages/Joint';
-import JointDetail from './Pages/JointDetail';
-import UserManagement from './Pages/UserManagement';
 import {CssBaseline } from '@material-ui/core';
-import Plants from './Pages/Plants';
-import variantsManagement from './Pages/variantsManagement';
-import HomePage from './Pages/index'
-import Login from './components/Login/Login'
-import About from './Pages/About';
-import Contact from './Pages/Contact';
-import GlobalStyle from './globalStyles'
-import PlantProfile from './components/PlantProfile'
-import ReviewsManagement from './Pages/ReviewsManagement';
+import HomePage from './pages/home';
+import About from './pages/about';
+import Contact from './pages/contact';
+import Plants from './pages/plants';
+import PlantProfile from './components/plantProfile'
+import Conditions from './pages/conditions';
+import Cardiac from './pages/cardiac';
+import CardiacDetail from './pages/cardiacDetail';
+import Joint from './pages/joint';
+import JointDetail from './pages/jointDetail';
+import Remedies from './pages/remedies';
+import Login from './pages/login';
+import PlantManagement from './pages/plantManagement';
+import RemedyManagement from './pages/remedyManagement';
+import ConditionManagement from './pages/conditionsManagement';
+import UserManagement from './pages/userManagement';
+import variantsManagement from './pages/variantsManagement';
+import ReviewsManagement from './pages/reviewsManagement';
+import GlobalStyle from './globalStyles';
 
 
 function App() {

@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react'
-import Header from '../components/Header';
-import PageHeader from '../components/PageHeader';
-import Sidebar from '../components/Sidebar/Sidebar';
+import Header from '../components/header';
+import PageHeader from '../components/pageHeader';
+import Sidebar from '../components/sideBar/sideBar';
 import '../components/styles/componentStyles.scss';
 
 function Plantvaiants() {

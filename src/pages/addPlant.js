@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Axios from 'axios';
-import Sidebar from '../components/Sidebar/Sidebar';
+import Sidebar from '../components/sidebar/sidebar';
 
 function AddPlants() {
 

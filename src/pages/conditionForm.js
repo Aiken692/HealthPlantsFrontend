@@ -1,8 +1,8 @@
 import { Grid, makeStyles } from '@material-ui/core';
 import React, { useEffect } from 'react'
 import {useForm, Form} from '../components/useForm';
-import Controls from '../components/controls/Control'
-import * as List from '../Pages/List/list'
+import Controls from '../components/controls/control'
+import * as List from '../pages/list/list'
 import * as FaIcons from "react-icons/fa";
 
 

@@ -1,12 +1,12 @@
-import React, {useLayoutEffect, useEffect,useState} from 'react'
-import Dropdown from '../components/Dropdown';
-import Navbar from '../components/Navbar/Navbar';
+import React, {useLayoutEffect, useEffect,useState} from 'react';
 import { useLocation } from 'react-router-dom'
 import Aos from 'aos';
-import Footer from '../components/Footer';
+import Dropdown from '../components/dropdown';
+import Navbar from '../components/navBar/navBar';
+import Footer from '../components/footer';
+import Continer from '../components/PRCcomps/container';
 import SearchArea from '../components/PRCcomps/searchAreaRem';
 import GloballStyle from '../globalStyles';
-import Continer from '../components/PRCcomps/container';
 
 
 function Remedies() {

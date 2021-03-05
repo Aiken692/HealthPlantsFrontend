@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FaTimes } from 'react-icons/fa';
-import { menuData } from '../data/MenuData';
+import { menuData } from '../data/menuData';
 import { Link } from 'react-router-dom';
 
 const DropdownContainer = styled.div`

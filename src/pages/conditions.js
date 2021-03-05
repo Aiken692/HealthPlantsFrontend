@@ -1,9 +1,9 @@
-import React, {useLayoutEffect, useEffect,useState} from 'react'
-import Dropdown from '../components/Dropdown';
-import Navbar from '../components/Navbar/Navbar';
+import React, {useLayoutEffect, useEffect,useState} from 'react';
 import { useLocation } from 'react-router-dom'
+import Dropdown from '../components/dropdown';
+import Navbar from '../components/navBar/navBar';
 import Aos from 'aos';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 import SearchArea from '../components/PRCcomps/searchAreaConditions';
 import GloballStyle from '../globalStyles';
 import Continer from '../components/PRCcomps/conditionsContainer';

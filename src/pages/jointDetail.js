@@ -1,12 +1,12 @@
-import React, {useLayoutEffect, useEffect,useState} from 'react'
-import Dropdown from '../components/Dropdown';
-import Navbar from '../components/Navbar/Navbar';
-import { useLocation } from 'react-router-dom'
+import React, {useLayoutEffect, useEffect,useState} from 'react';
+import { useLocation } from 'react-router-dom';
 import Aos from 'aos';
-import Footer from '../components/Footer';
+import Dropdown from '../components/dropdown';
+import Navbar from '../components/navBar/navBar';
+import Footer from '../components/footer';
 import SearchArea from '../components/PRCcomps/searchAreaJoint';
+import Details from '../components/PRCcomps/details/jointCardicaDetail';
 import GloballStyle from '../globalStyles';
-import Continer from '../components/PRCcomps/container';
 
 
 function Joint() {
@@ -37,7 +37,7 @@ function Joint() {
             <Navbar toggle={toggle}/>
             <Dropdown isOpen={isOpen} toggle={toggle}/>
             <SearchArea />
-            <Continer pageName="Joint"/>
+            <Details />
             <Footer/>
         </>
     )

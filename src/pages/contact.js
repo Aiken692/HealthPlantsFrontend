@@ -1,14 +1,14 @@
-import React, {useState, useEffect, useLayoutEffect} from 'react'
-import styled, {css} from 'styled-components/macro';
-import styles from '../Pages/contact.scss'
-import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom'
+import React, {useState, useEffect, useLayoutEffect} from 'react';
+import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom';
 import Aos from 'aos';
-import Navbar from '../components/Navbar/Navbar';
-import Dropdown from '../components/Dropdown';
+import styled, {css} from 'styled-components/macro';
+import styles from '../pages/contact.scss';
+import Navbar from '../components/navBar/navBar';
+import Dropdown from '../components/dropdown';
+import Footer from '../components/footer';
 import * as FaIcons from "react-icons/fa";
 import { FaFacebook, FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube} from 'react-icons/fa';
-import Footer from '../components/Footer';
-import nature from '../Images/nature.jpeg'
+import nature from '../images/nature.jpeg'
 
 const ConImage= styled.img`
     position: absolute;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro';
 
-import TeaOne from '../Images/image-7.jpg' 
+import TeaOne from '../images/image-7.jpg' 
 
 
 

@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import { Paper, makeStyles, TableBody, TableRow, TableCell, Toolbar, InputAdornment } from '@material-ui/core';
-import Header from '../components/Header'
-import PageHeader from '../components/PageHeader';
-import ConditionForm from './ConditionForm';
+import Header from '../components/header'
+import PageHeader from '../components/pageHeader';
+import ConditionForm from './conditionForm';
 import * as FaIcons from "react-icons/fa";
 import useTable from "../components/useTable";
-import * as List from "../Pages/List/list"
-import Controls from '../components/controls/Control'
+import * as List from "../pages/list/list"
+import Controls from '../components/controls/control'
 import { Search} from '@material-ui/icons'
 import AddIcon from '@material-ui/icons/Add'
 import CloseIcon from '@material-ui/icons/Close'
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
-import Popup from "../components/Popup";
-import Sidebar from '../components/Sidebar/Sidebar';
+import Popup from "../components/popup";
+import Sidebar from '../components/sideBar/sideBar';
 
 const useStyles = makeStyles(theme => ({
     pageContent: {

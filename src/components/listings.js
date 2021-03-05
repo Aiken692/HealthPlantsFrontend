@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components/macro';
 import {Link} from 'react-router-dom';
 import { AiOutlineArrowRight } from 'react-icons/ai';
-import TeaOne from '../Images/tea2.jpg' 
-import DiseaseOne from '../Images/disease.jpg' 
-import {Button } from './Navbar/button'
+import TeaOne from '../images/tea2.jpg' 
+import DiseaseOne from '../images/disease.jpg' 
+import {Button } from './navBar/button'
 
 
 
