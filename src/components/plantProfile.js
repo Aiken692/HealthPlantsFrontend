@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
+import ReactLoading from 'react-loading';
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import styled from 'styled-components';
@@ -60,6 +61,7 @@ const CardFooter = styled.div`
 function PlantProfile(){
 
     const [isOpen, setIsOpen] = useState(false)
+    const [done, setDone] = useState(undefined);
 
     const toggle = () => {
         setIsOpen(!isOpen)
@@ -70,7 +72,7 @@ function PlantProfile(){
         id
     )
 
-    const url = `http://localhost:5000/api/plants`
+    const url = `http://localhost:5001/api/plants`
         
     const [plant, setPlant] = useState(null);
         
@@ -80,14 +82,20 @@ function PlantProfile(){
     let content = null;
     
     useEffect(() => {
-        axios.get(url)
-        .then(response => {
-            setPlant(response.data)
-            // console.log(response)
-        })
-        .catch(err => {
-            console.log(err)
-        }) 
+        setTimeout(() => {
+            axios.get(url)
+            .then(response => {
+                setPlant(response.data)
+                
+            })
+            .then((data) => {
+                setDone(true);
+            })
+            .catch(err => {
+                console.log("This Page Can't be reached")
+            }) 
+        }, 2000);
+        
     }, [url])
 
     if(plant){
@@ -106,7 +114,7 @@ function PlantProfile(){
                                     <div className="col-md-4">
                                         
                                         <div className="img">
-                                            <img src="https://cdn.pixabay.com/photo/2018/12/17/13/17/moringa-3880393__480.jpg" width="100%" height="100%" alt="image here" />
+                                            <img src={singlePlant.plant_image} width="100%" height="100%" alt="image here" />
      
                                         </div>
     
@@ -160,8 +168,8 @@ function PlantProfile(){
                                         
                                         <div className="description">
                                         <h3>Description</h3>
-                                        {singlePlant.plant_description}
-                                            
+                                        <p>{singlePlant.plant_description}</p>
+                                        
                                         </div>
 
                                         <div className="reviews">
@@ -199,7 +207,7 @@ function PlantProfile(){
                                                 
                                             </div>
 
-                                            <div className="single-review">
+                                            {/* <div className="single-review">
                                                 <div className="review-header">
                                                     <span className="name">Emily Queen Tusiime</span>
                                                     <span className="reviewd">reviewed</span>
@@ -231,7 +239,7 @@ function PlantProfile(){
                                                     
                                                 </div>
                                                 
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                         
@@ -248,9 +256,15 @@ function PlantProfile(){
 
 
     return (
-       <div>
-           {content}
-       </div>
+       <>
+        
+           {
+               !done ?  <ReactLoading type={'balls'} color={'green'} height={'20%'} width={'20%'} position={'center'}/> 
+               :  {content}
+           }
+           
+          
+       </>
     )
 }
 

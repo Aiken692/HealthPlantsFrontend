@@ -24,6 +24,7 @@ import { useEffect } from 'react';
 
 
 
+
 const useStyles = makeStyles(theme => ({
     pageContent: {
         margin: theme.spacing(5),
@@ -89,7 +90,7 @@ export default function Remedies() {
     const [remedies, setRemedy] = useState([]);
 
     const getData = async () => {
-        let url = 'http://localhost:5000/api/remedies';
+        let url = 'http://localhost:5001/api/remedies';
 
         const response = await Axios.get(url);
 

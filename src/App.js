@@ -15,6 +15,7 @@ import JointDetail from './pages/jointDetail';
 import Remedies from './pages/remedies';
 import Login from './pages/login';
 import PlantManagement from './pages/plantManagement';
+import AddPlants from './pages/addPlant';
 import RemedyManagement from './pages/remedyManagement';
 import ConditionManagement from './pages/conditionsManagement';
 import UserManagement from './pages/userManagement';
@@ -50,6 +51,8 @@ function App() {
           <Route path='/variantManagement' component={variantsManagement}/>
           <Route path='/reviewsManagement' component={ReviewsManagement}/> 
           <Route path='/plants' component={Plants}/> 
+          <Route path='/Addplant' component={AddPlants}/> 
+                    
                     
          </Switch> 
       </Router> 

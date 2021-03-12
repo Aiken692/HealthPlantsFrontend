@@ -29,7 +29,8 @@ function Table(){
     const [plants, setPlants] = useState([]);
 
     const getData = async () => {
-        let url ='http://localhost:5001/api/plants';
+        // let url ='http://localhost:5001/api/plants';
+        let url ='https://health-plants-of-uganda.herokuapp.com/api/plants';
 
         const response = await Axios.get(url);
         // console.log('response', response);

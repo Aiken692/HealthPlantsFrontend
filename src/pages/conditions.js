@@ -12,38 +12,38 @@ import Continer from '../components/PRCcomps/conditionsContainer';
 
 function Conditions() {
 
-    const location = useLocation();
-    const [isOpen, setIsOpen] = useState(false)
+  const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false)
 
-    const toggle = () => {
-        setIsOpen(!isOpen)
-      }
-    
-      useLayoutEffect(() => {
-        window.scrollTo(0,0)
-      },[location.pathname])
-    
-      useEffect(() => {
-        Aos.init({});
-        
-      }, []);
-
-
+  const toggle = () => {
+      setIsOpen(!isOpen)
+    }
+  
+    useLayoutEffect(() => {
+      window.scrollTo(0,0)
+    },[location.pathname])
+  
+    useEffect(() => {
+      Aos.init({});
+      
+    }, []);
 
 
 
-    return (
-        <>
-            <GloballStyle/>
-            <Navbar toggle={toggle}/>
-            <Dropdown isOpen={isOpen} toggle={toggle}/>
-            <SearchArea />
-            <Continer />
-            {/* <Details /> */}
-            <Footer/>
 
-        </>
-    )
+
+  return (
+      <>
+          <GloballStyle/>
+          <Navbar toggle={toggle}/>
+          <Dropdown isOpen={isOpen} toggle={toggle}/>
+          <SearchArea />
+          <Continer />
+          {/* <Details /> */}
+          <Footer/>
+
+      </>
+  )
 }
 
 export default Conditions;

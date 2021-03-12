@@ -1,8 +1,9 @@
 import { Grid, makeStyles} from '@material-ui/core';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useForm, Form} from '../components/useForm';
 import Controls from '../components/controls/control'
 import * as FaIcons from "react-icons/fa";
+import axios from 'axios';
 
 
 
@@ -10,13 +11,15 @@ import * as FaIcons from "react-icons/fa";
 
 
 
-const initialFValues = {
-    id :0,
-    name:'',
-    description:'',
-    plantVariant:'',
-    reviews:''
-}
+
+
+// const initialFValues = {
+//     id :0,
+//     name:'',
+//     description:'',
+//     plantVariant:'',
+//     reviews:''
+// }
 
 
 
@@ -34,44 +37,76 @@ const useStyle = makeStyles({
 
 export default function RemediesForm(props) {
 
+    const [selectedImage, setSelectedImage] = useState();
+    const [remedy_name, setRemedy_name] = useState();
+    const [remedy_preparation, setRemedy_preparation] = useState();
+
+
     const {addOrEdit, recordForEdit} = props;
 
-    const validate = (fieldsValues) => {
-        let temp = {}
-        temp.name = values.name?"":"This field is required."
-        temp.name = values.plantVariant?"":"This field is required."
-        setErrors({
-            ...temp
-        })
+    // const validate = (fieldsValues) => {
+    //     let temp = {}
+    //     temp.name = values.name?"":"This field is required."
+    //     temp.name = values.plantVariant?"":"This field is required."
+    //     setErrors({
+    //         ...temp
+    //     })
 
-        return Object.values(temp).every( x => x == "")
-    }
+    //     return Object.values(temp).every( x => x == "")
+    // }
 
    
-    const{
-        values,
-        setValues,
-        errors,
-        setErrors,
-        handleInputChange,
-        resetForm
-    } = useForm(initialFValues, true, validate);
+    // const{
+    //     values,
+    //     setValues,
+    //     errors,
+    //     setErrors,
+    //     handleInputChange,
+    //     resetForm
+    // } = useForm(initialFValues, true, validate);
 
     
     const classes = useStyle();
 
 
-    const handleSubmit = e => {
+    const onFormSubmit = e => {
+        console.log("Hello here we are....")
         e.preventDefault();
+        const formData = new FormData();
         
+        formData.append('myImage', selectedImage);
+        formData.append('remedy_name', remedy_name);
+        formData.append('remedy_preparation', remedy_preparation);
+        console.log(selectedImage);
+        const config = {
+            headers: {
+                'content-type' : 'multipart/form-data'
+            }
+        };
+    
+        axios.post('http://localhost:5001/api/remedies', formData, config)
+        .then(response => {
+                    console.log(response);
+                    return;
+            //     })
+            // .then(response => {
+            // 	return;
+            }).catch(error => {
+                return;
+            })
     }
 
-    useEffect(()=> {
-        if(recordForEdit != null)
-            setValues({
-                ...recordForEdit
-            })
-    }, [recordForEdit])
+    const handleInputChange = e => {
+        const uploadedImage = e.target.files[0];	
+        setSelectedImage(uploadedImage);
+    }
+
+    // useEffect(()=> {
+    //     if(recordForEdit != null)
+    //         setValues({
+    //             ...recordForEdit
+    //         })
+    // }, [recordForEdit])
     
 
     return (
@@ -80,25 +115,28 @@ export default function RemediesForm(props) {
     
 
       
-            <Form onSubmit = {handleSubmit}>
+            <Form onSubmit = {onFormSubmit}>
               <Grid container>
                 <Grid item xs={10}>
                     <Controls.Input
                     label="Name"
                     name="name"
+                    onChange={(event) => {
+                        setRemedy_name(event.target.value)
+                    }}
                     // value={values.name}
-                    onChange = {handleInputChange}
+                    // onChange = {handleInputChange}
                     // error={ errors.name}         
                     /*THis name error is really disturbing me, i may need some help from Mr.JAcksn*/
                     />
-
+{/* 
                     <Controls.Input                  
-                    label="Plant Variant"
-                    name="plantVariant"
-                    // value={values.plantVariant}
-                    onChange = {handleInputChange}
-                    
-                    /> 
+                    label="Plant Preparation"
+                    name="plantPreparation"
+                    onChange={(event) => {
+                        setRemedy_preparation(event.target.value)
+                    }}
+                    />  */}
 
                     <input                  
                     label="Image"
@@ -120,13 +158,17 @@ export default function RemediesForm(props) {
 
 
                 <Grid item xs={12}>
-                    <textarea className={classes.root}
+                    <textarea className={classes.root}                  
+                        label="remedy Preparation"
+                        name="remedyPreparation"
+                        onChange={(event) => {
+                            setRemedy_preparation(event.target.value)
+                        }}
                         variant="outlined"
-                        onChange = {handleInputChange}
+                        // onChange = {handleInputChange}
                         rowsMax={4}
                         aria-label="maximum height"
-                        label="Description"
-                        placeholder='Description'
+                        placeholder='Remedy Preparation'
                         
                     />
                 </Grid>
@@ -135,13 +177,14 @@ export default function RemediesForm(props) {
                     <Controls.Button
                         type="submit"
                         text="Submit"
+                        onClick={onFormSubmit}
                     />
 
                     <Controls.Button
                         color="secondary"
                         text="Cancel"
-                        onClick = {resetForm}
-                    />
+                        
+                    /> 
                 </div>
                
               </Grid>

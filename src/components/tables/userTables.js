@@ -51,6 +51,10 @@ function UserTable( props ){
 
 
     const [users, setUsers] = useState([]);
+    const [user_full_name, setuser_full_name] = useState("");
+    const [email, setemail] = useState("");
+    const [phone_number, setphone_number] = useState("");
+    const [file, setFile ] = useState(null);
 
 
 
@@ -93,6 +97,44 @@ function UserTable( props ){
             )
         })
     }
+
+
+
+    const onFormSubmit = (e)=>{
+        console.log("Hello there.....")
+        e.preventDefault();
+        const formData = new FormData();
+        
+        formData.append('myImage', file);
+        formData.append('user_full_name', user_full_name);
+        formData.append('email', email);
+        formData.append('phone_number', phone_number);
+        console.log(file);
+        const config = {
+            headers: {
+                'content-type' : 'multipart/form-data'
+            }
+        };
+    
+        Axios.post('http://localhost:5001/api/users', formData, config)
+        .then(response => {
+                    console.log(response);
+                    return;
+            //     })
+            // .then(response => {
+            // 	return;
+            }).catch(error => {
+                return;
+            })
+    }
+
+
+
+const onChange= (e) => {
+	const uploadedImage = e.target.files[0];	
+	setFile(uploadedImage);
+ }
+    
 
 
 
@@ -165,11 +207,13 @@ function UserTable( props ){
                     <Modal.Title>Add New Admin</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <form class="row g-3">
+                <form onSubmit={onFormSubmit} class="row g-3">
             
                     <div class="col-12">
-                        <label for="FirstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="FirstName" placeholder=""/>
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text"onChange={(event) => {
+                            setuser_full_name(event.target.value)
+                        }} class="form-control" id="fullName" placeholder=""/>
                     </div>
                     <div class="col-12">
                         <label for="LastName" class="form-label">Last Name</label>
@@ -177,11 +221,19 @@ function UserTable( props ){
                     </div>
                     <div class="col-12">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="" />
+                        <input type="email" onChange={(event) => {
+                            setemail(event.target.value)
+                        }} class="form-control" id="email" placeholder="" />
                     </div>
                     <div class="col-12">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="tel" class="form-control" id="phone" placeholder="" />
+                        <label for="phone_number" class="form-label">Phone</label>
+                        <input type="tel" onChange={(event) => {
+                            setphone_number(event.target.value)
+                        }} class="form-control" id="phone_number" placeholder="" />
+                    </div>
+                    <div class="col-12">
+                        <label for="myImage" class="form-label">Image</label>
+                        <input type='file' name='myImage' onChange={onChange}/>
                     </div>
                  
                     <Modal.Footer className="modalFooter">

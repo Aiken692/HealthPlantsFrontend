@@ -4,7 +4,7 @@ import Aos from 'aos';
 import Dropdown from '../components/dropdown';
 import Navbar from '../components/navBar/navBar';
 import Footer from '../components/footer';
-import Continer from '../components/PRCcomps/container';
+import RemediesContainer from '../components/PRCcomps/remediesContainer';
 import SearchArea from '../components/PRCcomps/searchAreaRem';
 import GloballStyle from '../globalStyles';
 
@@ -37,7 +37,7 @@ function Remedies() {
             <Navbar toggle={toggle}/>
             <Dropdown isOpen={isOpen} toggle={toggle}/>
             <SearchArea />
-            <Continer pageName="Remedies"/>
+            <RemediesContainer pageName="Remedies"/>
             <Footer/>
         </>
     )

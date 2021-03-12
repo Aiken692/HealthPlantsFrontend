@@ -4,6 +4,7 @@ import Axios from 'axios';
 import Jamie from "../../images/Jamie1.JPG";
 import { Link } from 'react-router-dom';
 
+
 // Importing the cad component.
 import { Card } from "react-bootstrap"; 
 
@@ -32,7 +33,7 @@ function Container(props){
 
 
     const getData = async () => {
-        let url ='http://localhost:5001/api/plants';
+        let url ='http://localhost:5001/api/remedies';
 
         const response = await Axios.get(url);
         // console.log('response', response);
@@ -48,27 +49,25 @@ function Container(props){
 
     const renderBody = () => {
 
-        return plants && plants.map(({plant_id, plant_common_name, plant_latin_name, plant_image, plant_description}) => {
+        return plants && plants.map(({remedy_id, remedy_name, remedy_preparation, remedy_image}) => {
 
-            console.log(plant_image)
             return (
 
                 <div>
                         
                     
                             <Card style={{ width: '17rem',marginBottom: '5%', height: '18rem'}} className="plantCard" >
-                                <Link to={`/plant/${plant_id}`}>
-                                <Card.Img variant="top" src="holder.js/100px180"  src={plant_image} alt="img here"/>
-                                {/* src="holder.js/100px180" */}
+                                <Link to={`/remedy/${remedy_id}`}>
+                                <Card.Img variant="top" src="holder.js/100px180" src={remedy_image} alt="img here"/>
                                 </Link>
                                 
                                 <Card.Body>
-                                    <Card.Title>{plant_common_name}</Card.Title>
-                                    <p class="card-title">{plant_latin_name}</p>
+                                    <Card.Title>{remedy_name}</Card.Title>
+                                    <p class="card-title">{remedy_preparation}</p>
                                     {/* <Card.Text>
                                     {plant_description}
                                     </Card.Text> */}
-                                    <Link to={`/plant/${plant_id}`}>Read More...</Link>
+                                    <Link to={`/remedy/${remedy_id}`}>Read More...</Link>
                                     
                                     
                                 </Card.Body>
@@ -141,7 +140,6 @@ console.log(plants)
                        
                     </div>
                 </div>
-
             </ContainerOne>
         </Section>
     )

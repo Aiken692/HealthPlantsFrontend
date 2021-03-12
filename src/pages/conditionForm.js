@@ -1,9 +1,13 @@
 import { Grid, makeStyles } from '@material-ui/core';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import {useForm, Form} from '../components/useForm';
-import Controls from '../components/controls/control'
-import * as List from '../pages/list/list'
+import Controls from '../components/controls/control';
+import * as List from '../pages/list/list';
 import * as FaIcons from "react-icons/fa";
+
+
+
 
 
 
@@ -32,6 +36,41 @@ const useStyle = makeStyles({
 )
 
 export default function ConditionForm(props) {
+
+
+
+    const [affliction_common_name, setaffliction_common_name] = useState("");
+    const [affliction_latin_name, setaffliction_latin_name] = useState("");
+    const [affliction_description, setaffliction_description] = useState("");
+
+const onFormSubmit = (e)=>{
+    console.log("Here we go.....")
+    e.preventDefault();
+    const formData = new FormData();
+    
+    formData.append('affliction_common_name', affliction_common_name);
+    formData.append('affliction_latin_name', affliction_latin_name);
+    formData.append('affliction_description', affliction_description);
+
+    axios.post('http://localhost:5001/api/conditions', formData)
+    .then(response => {
+                console.log(response);
+                return;
+        //     })
+		// .then(response => {
+		// 	return;
+		}).catch(error => {
+			return;
+		})
+}
+
+// const onChange= (e) => {
+// 	const uploadedImage = e.target.files[0];	
+// 	setFile(uploadedImage);
+//  }
+
+
+
 
     const {addOrEdit, recordForEdit} = props;
 
@@ -77,25 +116,35 @@ export default function ConditionForm(props) {
 
     return (
         // <form className={classes.root}>
-            <Form onSubmit = { handleSubmit }>
+            <Form onSubmit={onFormSubmit}>
               <Grid container>
                 <Grid item xs={10}>
-                    <Controls.Input
-                    label="Disease Name"
-                    name="name"
+                    <Controls.Input type = "text" onChange={(event) => {
+                            setaffliction_common_name(event.target.value)
+                        }} 
+                    label="Condition_common_name"
+                    name="condition_common_name"
                     // value={values.name}
-                    onChange = {handleInputChange}
                     // error={ errors.name}         
                     /*THis name error is really disturbing me, i may need some help from Mr.JAcksn*/
                     />
-
+                    <Controls.Input type = "text" onChange={(event) => {
+                            setaffliction_latin_name(event.target.value)
+                        }} 
+                    label="Condition_latin_name"
+                    name="condition_latin_name"
+                    // value={values.name}
+                    // error={ errors.name}         
+                    /*THis name error is really disturbing me, i may need some help from Mr.JAcksn*/
+                    />
+{/* 
                     <Controls.Input                  
                     label="Remedy"
                     name="remedy"
                     // value={values.plantVariant}
                     onChange = {handleInputChange}
                     
-                    /> 
+                    />  */}
 
 
                 </Grid>
@@ -109,7 +158,9 @@ export default function ConditionForm(props) {
 
 
                 <Grid item xs={12}>
-                    <textarea className={classes.root}
+                    <textarea onChange={(event) => {
+                            setaffliction_description(event.target.value)
+                        }} className={classes.root}
                         variant="outlined"
                         onChange = {handleInputChange}
                         rowsMax={4}
@@ -122,6 +173,7 @@ export default function ConditionForm(props) {
 
                 <div className={classes.root}>
                     <Controls.Button
+                        onClick={onFormSubmit}
                         type="submit"
                         text="Submit"
                     />
