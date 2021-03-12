@@ -44,6 +44,10 @@ export default function RemediesForm(props) {
 
     const {addOrEdit, recordForEdit} = props;
 
+
+    // let url ='http://localhost:5001/api/remedies';
+    let url ='https://health-plants-of-uganda.herokuapp.com/api/remedies';
+
     // const validate = (fieldsValues) => {
     //     let temp = {}
     //     temp.name = values.name?"":"This field is required."
@@ -84,7 +88,7 @@ export default function RemediesForm(props) {
             }
         };
     
-        axios.post('http://localhost:5001/api/remedies', formData, config)
+        axios.post(url, formData, config)
         .then(response => {
                     console.log(response);
                     return;

@@ -72,8 +72,8 @@ function PlantProfile(){
         id
     )
 
-    const url = `http://localhost:5001/api/plants`
-        
+    // let url ='http://localhost:5001/api/plants';
+    let url ='https://health-plants-of-uganda.herokuapp.com/api/plants';
     const [plant, setPlant] = useState(null);
         
        

@@ -3,11 +3,8 @@ import { useLocation } from 'react-router-dom'
 import Aos from 'aos';
 import Dropdown from '../components/dropdown';
 import Navbar from '../components/navBar/navBar';
-// import styled from 'styled-components';
-// import { isStyledComponent } from 'styled-components';
 import Footer from '../components/footer';
 import SearchArea from '../components/PRCcomps/searchAreaCardiac';
-// import Continer from '../components/PRCcomps/container';
 import Details from '../components/PRCcomps/details/jointCardicaDetail';
 import GloballStyle from '../globalStyles';
 

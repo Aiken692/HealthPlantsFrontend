@@ -43,6 +43,10 @@ export default function ConditionForm(props) {
     const [affliction_latin_name, setaffliction_latin_name] = useState("");
     const [affliction_description, setaffliction_description] = useState("");
 
+
+    // let url ='http://localhost:5001/api/plants';
+    let url ='https://health-plants-of-uganda.herokuapp.com/api/conditions';
+
 const onFormSubmit = (e)=>{
     console.log("Here we go.....")
     e.preventDefault();
@@ -52,7 +56,7 @@ const onFormSubmit = (e)=>{
     formData.append('affliction_latin_name', affliction_latin_name);
     formData.append('affliction_description', affliction_description);
 
-    axios.post('http://localhost:5001/api/conditions', formData)
+    axios.post(url, formData)
     .then(response => {
                 console.log(response);
                 return;

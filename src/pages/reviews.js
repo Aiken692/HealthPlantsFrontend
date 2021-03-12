@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import Dropdown from '../components/Dropdown';
-import Navbar from '../components/Navbar/Navbar'
+import Dropdown from '../components/dropdown';
+import Navbar from '../components/navBar/navBar';
 import '../components/styles/componentStyles.scss';
 
 const Reviews = () => { 

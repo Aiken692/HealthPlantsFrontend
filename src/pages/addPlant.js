@@ -11,6 +11,10 @@ function AddPlants() {
     const [plant_description, setplant_description] = useState("");
     const [file, setFile ] = useState(null);
 
+
+    // let url ='http://localhost:5001/api/plants';
+    let url ='https://health-plants-of-uganda.herokuapp.com/api/plants';
+
 const onFormSubmit = (e)=>{
     e.preventDefault();
     const formData = new FormData();
@@ -26,7 +30,7 @@ const onFormSubmit = (e)=>{
 		}
 	};
 
-    axios.post('http://localhost:5001/api/plants', formData, config)
+    axios.post(url, formData, config)
     .then(response => {
                 console.log(response);
                 return;

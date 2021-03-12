@@ -58,8 +58,9 @@ function UserTable( props ){
 
 
 
+    // let url ='http://localhost:5001/api/users';
+    let url ='https://health-plants-of-uganda.herokuapp.com/api/users';
     const getData = async () => {
-        let url ='http://localhost:5001/api/users';
 
         const response = await Axios.get(url);
         // console.log('response', response);
@@ -116,7 +117,7 @@ function UserTable( props ){
             }
         };
     
-        Axios.post('http://localhost:5001/api/users', formData, config)
+        Axios.post( url , formData, config)
         .then(response => {
                     console.log(response);
                     return;

@@ -32,8 +32,9 @@ function Container(props){
 
 
 
+    // let url ='http://localhost:5001/api/remedies';
+    let url ='https://health-plants-of-uganda.herokuapp.com/api/remedies';
     const getData = async () => {
-        let url ='http://localhost:5001/api/remedies';
 
         const response = await Axios.get(url);
         // console.log('response', response);
