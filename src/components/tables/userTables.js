@@ -117,7 +117,7 @@ function UserTable( props ){
             }
         };
     
-        Axios.post( url , formData, config)
+        Axios.post('http://localhost:5001/api/users', formData, config)
         .then(response => {
                     console.log(response);
                     return;

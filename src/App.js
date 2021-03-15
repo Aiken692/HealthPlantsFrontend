@@ -16,11 +16,12 @@ import Remedies from './pages/remedies';
 import Login from './pages/login';
 import PlantManagement from './pages/plantManagement';
 import AddPlants from './pages/addPlant';
-import RemedyManagement from './pages/remedyManagement';
+import RemedyMgt from './pages/remedyManagement';
 import ConditionManagement from './pages/conditionsManagement';
 import UserManagement from './pages/userManagement';
 import variantsManagement from './pages/variantsManagement';
 import ReviewsManagement from './pages/reviewsManagement';
+import RemedyProfile from './components/remedyProfile';
 import GlobalStyle from './globalStyles';
 
 
@@ -38,6 +39,7 @@ function App() {
            <Route path='/conditionManagement' component={ConditionManagement}/>
           
            <Route path='/plant/:id' component={PlantProfile}/>
+           <Route path='/remedy/:id' component={RemedyProfile}/>
 
           <Route path='/about'  component={About} />
           <Route path='/login'  component={Login} />
@@ -47,7 +49,7 @@ function App() {
           <Route path='/cardicadetail' component={CardiacDetail}/>
           <Route path='/joint' component={Joint}/>
           <Route path='/jointdetail' component={JointDetail}/>
-          <Route path='/remedyManagement' component={RemedyManagement}/>
+          <Route path='/remedyManagement' component={RemedyMgt}/>
           <Route path='/variantManagement' component={variantsManagement}/>
           <Route path='/reviewsManagement' component={ReviewsManagement}/> 
           <Route path='/plants' component={Plants}/> 

@@ -34,10 +34,9 @@ background-color:#CAFFCA;
 function ReviewTable(){
 
     const [reviews, setReviews] = useState([]);
-    // let url ='http://localhost:5001/api/reviews';
-    let url ='https://health-plants-of-uganda.herokuapp.com/api/reviews';
 
     const getData = async () => {
+        let url ='http://localhost:5000/api/reviews';
 
         const response = await Axios.get(url);
         // console.log('response', response);

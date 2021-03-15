@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import ReactLoading from 'react-loading';
-import { useParams } from 'react-router-dom';
 import axios from 'axios'
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import GloballStyle from '../globalStyles';
 import Navbar from './navBar/navBar';
 import Dropdown from './dropdown';
 import Footer from './footer';
-
 // asbhdsds
 const Section = styled.section`
     width: 100%;
@@ -58,7 +57,7 @@ const CardFooter = styled.div`
 
 // jhbshabs
 
-function PlantProfile(){
+function RemedyProfile(){
 
     const [isOpen, setIsOpen] = useState(false)
     const [done, setDone] = useState(undefined);
@@ -72,9 +71,9 @@ function PlantProfile(){
         id
     )
 
-    const url = `http://localhost:5001/api/plants`
+    const url = `http://localhost:5001/api/remedies`
         
-    const [plant, setPlant] = useState(null);
+    const [remedy, setRemedy] = useState(null);
         
        
         
@@ -85,7 +84,7 @@ function PlantProfile(){
         setTimeout(() => {
             axios.get(url)
             .then(response => {
-                setPlant(response.data)
+                setRemedy(response.data)
                 
             })
             .then((data) => {
@@ -98,7 +97,7 @@ function PlantProfile(){
         
     }, [url])
 
-    if(plant){
+    if(remedy){
         return (
             content = 
                 <>
@@ -107,19 +106,19 @@ function PlantProfile(){
                     <Dropdown isOpen={isOpen} toggle={toggle}/>
                     <Section>
                     {
-                        plant.map(singlePlant => (
-                            singlePlant.plant_id == id ?
+                        remedy.map(singleRemedy => (
+                            singleRemedy.remedy_id == id ?
 
                                 <Container className="row" style={{border:'1px solid'}}>
                                     <div className="col-md-4">
                                         
                                         <div className="img">
-                                            <img src={singlePlant.plant_image} width="100%" height="100%" alt="image here" />
+                                            <img src={singleRemedy.remedy_image} width="100%" height="100%" alt="image here" />
      
                                         </div>
     
-                                            <h4>{singlePlant.plant_common_name}</h4>
-                                            <h5>{singlePlant.plant_latin_name}</h5> 
+                                            <h4>{singleRemedy.remedy_name}</h4>
+                                            
                                        
                                         <Button>write a Review</Button>
                                         <h4>plant varianst</h4>
@@ -167,8 +166,8 @@ function PlantProfile(){
                                     <div className="col-md-8">
                                         
                                         <div className="description">
-                                        <h3>Description</h3>
-                                        <p>{singlePlant.plant_description}</p>
+                                        <h3>Preparation</h3>
+                                        <p>{singleRemedy.remedy_preparation}</p>
                                         
                                         </div>
 
@@ -207,39 +206,7 @@ function PlantProfile(){
                                                 
                                             </div>
 
-                                            {/* <div className="single-review">
-                                                <div className="review-header">
-                                                    <span className="name">Emily Queen Tusiime</span>
-                                                    <span className="reviewd">reviewed</span>
-                                                    <span className="remedy">Ginger Tea</span>
-                                                    <br />
-                                                    <span className="date">11/11/2020</span>
-                                                </div>
-                                                <div className="review-body">
-                                                    <p>
-                                                    Lorem Ipsum is simply dummy text 
-                                                    of the printing and typesetting industry.
-                                                    Lorem Ipsum has been the industry's standard
-                                                    dummy text ever since the 1500s, when an unknown
-                                                    printer took a galley of type and scrambled
-                                                    it to make a type specimen book. 
-                                                   
-                                                    </p>
-                                                </div>
-                                                <div className="review-footer">
-                                                    <span className="rating">*****</span>
-                                                    <h5 className="comments"> comments : 10</h5>
-                                                </div>
-                                                <div className="reviewComments">
-                                                    Rate review<span className="rating">*****</span> <br />
-                                                    <span className="inputComment">
-                                                        <input type="text" placeholder="Add comment" />
-                                                        <button type="submit" primary>Comment</button>
-                                                    </span>
-                                                    
-                                                </div>
-                                                
-                                            </div> */}
+                                           
                                         </div>
                                     </div>
                                         
@@ -268,4 +235,4 @@ function PlantProfile(){
     )
 }
 
-export default PlantProfile;
+export default RemedyProfile;

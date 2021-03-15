@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled, {css} from 'styled-components/macro';
-import './navBar.css';
+// import './navBar.css';
 // import { Link } from 'react-router-dom';
 // import AppBar from '@material-ui/core/AppBar'
 // import ToolBar from '@material-ui/core/Toolbar'
@@ -12,7 +12,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { menuData } from '../../data/menuData';
 import {  AiOutlineBars } from "react-icons/ai";
 import {IoPersonCircleOutline} from "react-icons/io5";
-
 
 const Nav = styled.nav`
 height: 60px;

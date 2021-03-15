@@ -7,6 +7,7 @@ import DiseaseOne from '../images/disease.jpg'
 import {Button } from './navBar/button'
 
 
+
 const Section = styled.section`
     width: 100%;
     height: 100%;

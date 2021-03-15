@@ -1,8 +1,3 @@
-import React,{ useState } from 'react';
-import styled from 'styled-components';
-import '../styles/componentStyles.scss';
-import { Button, Modal } from 'react-bootstrap';
-import fruit from '../../Images/fruit.jpg'
 
 const TableHeader = styled.div`
 

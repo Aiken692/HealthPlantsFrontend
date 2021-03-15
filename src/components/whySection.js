@@ -123,19 +123,21 @@ const WhySection = () => {
                     data-aos-once='true'
                     data-aos-anchor-placement='center bottom'
                     >
-                        <p><b>Plants are fundamental not only for basic nutrition but also for general health, by enhancing health &
-                        fitness, preventing disease or providing cures from disease and health conditions.</b> Many medicines
-                        have been historically based on extracts from plants. But while the global population suffers from
-                        increasing ill-health and disease, many of the health properties of a wide variety of plants remain
-                        largely unknown to the global population. Meanwhile we discover that the products and practices of
-                        medical science and pharmaceutical companies don’t have all the answers to our health challenges.<br/><br/>
-                        Understanding and making use of the healing properties of plants is an ancient African tradition.
-                        These have historically been largely disregarded by developed country medical science partly
-                        because that they have been associated with dark spiritual practices (aka witchcraft) for the personal
-                        gain of the practitioner. While these two aspects clearly have been connected, there is no reason
-                        why they need to be. And the world has effectively “thrown out the baby with the bathwater”. We
-                        can throw out the unhealthy dark spiritual “bathwater”, but keep the “baby” which is a huge variety of
-                        plants, many not well known, with health benefits.<br/><br/>
+                        <p>Plants are fundamental not only for basic nutrition but also for general health, by enhancing health &amp;
+fitness, preventing disease or providing cures from disease and health conditions. Many medicines
+have been historically based on extracts from plants. But while the global population suffers from
+increasing ill-health and disease, many of the health properties of a wide variety of plants remain
+largely unknown to the global population. Meanwhile we discover that the products and practices of
+medical science and pharmaceutical companies don’t have all the answers to our health challenges.
+Understanding and making use of the healing properties of plants is an ancient African tradition.
+These have historically been largely disregarded by developed country medical science partly
+because that they have been associated with dark spiritual practices (aka witchcraft) for the personal
+gain of the practitioner. While these two aspects clearly have been connected, there is no reason
+why they need to be. And the world has effectively “thrown out the baby with the bathwater”. We
+can throw out the unhealthy dark spiritual “bathwater”, but keep the “baby” which is a huge variety of
+plants, many not well known, with health benefits.
+This website seeks to change that by offering website visitors an easy way to explore and exchange
+views on the health properties of different plants, their constituent parts(fruits, leaves, roots, bark) and their associated "remedies".<br/><br/>
                         
                         </p> 
                         
