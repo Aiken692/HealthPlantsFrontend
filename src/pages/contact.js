@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
+import styled, {css} from 'styled-components/macro';
 import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom';
 import Aos from 'aos';
-import styled, {css} from 'styled-components/macro';
 import styles from '../pages/contact.scss';
 import Navbar from '../components/navBar/navBar';
 import Dropdown from '../components/dropdown';
@@ -168,9 +168,7 @@ const Contact = () => {
                         </form>
                     </div>
                 </div>
-
-            
-                <Footer/> 
+                {/* <Footer/>  */}
           
 
         </>
