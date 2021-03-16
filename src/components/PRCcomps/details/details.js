@@ -55,7 +55,43 @@ const CardFooter = styled.div`
 `;
 function details(props){
 
+
     const {pageName} = props
+
+    const [comment, setComment] =useState("")
+    const [commentList, setCommentList] = useState([])
+    
+    const handleChangeComment = (event) =>{
+        setComment(event.target.value)
+    }
+    
+    const addComment = () =>{
+        Axios.post("http://localhost:5001/api/comments", {
+          comment:comment
+        }).then(() =>{
+          setCommentList([
+            ...commentList, {comment:comment}
+          ])
+        })
+    }
+
+    const getComment = () =>{
+        Axios.get("http://localhost:5001/api/comments").then((response) => {
+          setCommentList(response.data)
+        })
+      }
+
+    useEffect (()=>{
+        getComment()
+    },[])
+
+    // const renderComment = () => {
+    //     return comment && comment.map(({comment_body}) =>{
+    //         return(
+
+    //         )
+    //     })
+    // }
     return(
         <Section>
             <Container className="row">
@@ -187,16 +223,30 @@ function details(props){
                                 like Aldus PageMaker including versions of Lorem Ipsum.
                                 </p>
                             </div>
+
+                            <input type="checkbox" id="comment-toggle" />
                             <div className="review-footer">
                                 <span className="rating">*****</span>
-                                <h5 className="comments"> comments : 10</h5>
+                                <label for="comment-toggle" className="comment-icon comments">comments</label>
+                                {/* <h5 className="comments"> comments : 10</h5> */}
                             </div>
-                            <div className="reviewComments">
+                            <div className="review-comments">
                                 Rate review<span className="rating">*****</span> <br />
-                                <span className="inputComment">
-                                    <input type="text" placeholder="Add comment" />
-                                    <button type="submit" primary>Comment</button>
-                                </span>
+                                <div className="inputComment">
+                                    <input type="text" placeholder="Add comment" onChange={handleChangeComment} />
+                                    <button primary onClick={addComment}>Comment</button>
+                                </div>
+                                <div className="comments">
+                                    <div className="singleComment">
+                                    {commentList.map((val, key) =>{
+                                        return (
+                                            <ul>
+                                                <li>{val.comment}</li>
+                                            </ul>
+                                        )
+                                    })}
+                                    </div>
+                                </div>
                                 
                             </div>
                             
