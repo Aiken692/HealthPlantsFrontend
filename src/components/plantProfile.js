@@ -8,7 +8,6 @@ import Navbar from './navBar/navBar';
 import Dropdown from './dropdown';
 import Footer from './footer';
 
-// asbhdsds
 const Section = styled.section`
     width: 100%;
     min-height: 100vh;
@@ -207,39 +206,7 @@ function PlantProfile(){
                                                 
                                             </div>
 
-                                            {/* <div className="single-review">
-                                                <div className="review-header">
-                                                    <span className="name">Emily Queen Tusiime</span>
-                                                    <span className="reviewd">reviewed</span>
-                                                    <span className="remedy">Ginger Tea</span>
-                                                    <br />
-                                                    <span className="date">11/11/2020</span>
-                                                </div>
-                                                <div className="review-body">
-                                                    <p>
-                                                    Lorem Ipsum is simply dummy text 
-                                                    of the printing and typesetting industry.
-                                                    Lorem Ipsum has been the industry's standard
-                                                    dummy text ever since the 1500s, when an unknown
-                                                    printer took a galley of type and scrambled
-                                                    it to make a type specimen book. 
-                                                   
-                                                    </p>
-                                                </div>
-                                                <div className="review-footer">
-                                                    <span className="rating">*****</span>
-                                                    <h5 className="comments"> comments : 10</h5>
-                                                </div>
-                                                <div className="reviewComments">
-                                                    Rate review<span className="rating">*****</span> <br />
-                                                    <span className="inputComment">
-                                                        <input type="text" placeholder="Add comment" />
-                                                        <button type="submit" primary>Comment</button>
-                                                    </span>
-                                                    
-                                                </div>
-                                                
-                                            </div> */}
+                                            
                                         </div>
                                     </div>
                                         
@@ -257,11 +224,13 @@ function PlantProfile(){
 
     return (
        <>
-        
-           {
-               !done ?  <ReactLoading type={'balls'} color={'green'} height={'20%'} width={'20%'} position={'center'}/> 
+        <div>
+            {
+               !done ?  <ReactLoading type={'cubes'} color={'green'} height={'20%'} width={'10%'} top={'50%'} left={'50%'} position={'absolute'}/> 
                :  {content}
            }
+           
+        </div>
            
           
        </>

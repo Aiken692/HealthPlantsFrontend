@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Paper, makeStyles, TableBody, TableRow, TableCell, Toolbar, InputAdornment } from '@material-ui/core';
 import Header from '../components/header';
 import PageHeader from '../components/pageHeader';
@@ -18,7 +18,9 @@ import VisibilityIcon from '@material-ui/icons/VisibilityOutlined';
 import green from '@material-ui/core/colors/green';
 
 import Axios from 'axios';
-import { useEffect } from 'react';
+
+require("es6-promise").polyfill();
+require("isomorphic-fetch");
 
 
 
@@ -60,25 +62,39 @@ export default function Remedies() {
     const [records, setRecords] = useState(List.getAllRemedies())
     const [ openPopup, setOpenPopup] = useState(false)
 
+    // Filteing of data.
+    const [filterFn, setFilterFn] = useState("");
+
+
+
+
     const {
         TblContainer,
         TblHead
-    } = useTable(records, headCells);
+    } = useTable(records, headCells, filterFn);
 
     // This is to define the search function
     const handleSearch = e =>  {
         let target = e.target;
+        setFilterFn({
+            fn: items => {
+                if (target.value == "");
+            }
+        })
     }
-    // the handle search function is not complete.
+    // function search(rows){
+    //     return rows.filter((row) => row.remedy_name.toLoweCase().indexOf(q) > -1);
+    // }
+    // // the handle search function is not complete.
 
 
 
-    const addOrEdit = (remedy, resetForm) => {
-        List.insertRemedy(remedy)
-         resetForm();
-         setOpenPopup(false);
-         setRecords(List.getAllRemedies())
-    }
+    // const addOrEdit = (remedy, resetForm) => {
+    //     List.insertRemedy(remedy)
+    //      resetForm();
+    //      setOpenPopup(false);
+    //      setRecords(List.getAllRemedies())
+    // }
 
     const openInPopup = item => {
         setRecordForEdit(item)
@@ -103,6 +119,7 @@ export default function Remedies() {
 
     useEffect(() => {
         getData();
+
     }, []);
 
     const renderBody = () => {
@@ -150,12 +167,15 @@ export default function Remedies() {
         <Toolbar>
             <Controls.Input
                 label='Search'
+                
                 className={classes.searchInput}
                 InputProps={{
                     startAdorment: (<InputAdornment position='start'>
                         <Search/>
+                        
                     </InputAdornment>)
                 }}
+                
                 onChange={{handleSearch}} 
             />
 
@@ -195,7 +215,8 @@ export default function Remedies() {
     >
         <RemediesForm
         recordForEdit = { recordForEdit}
-        addOrEdit =  {addOrEdit}/>
+        // addOrEdit =  {addOrEdit}
+        />
     </Popup>
    
 </div>

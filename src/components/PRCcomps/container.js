@@ -81,7 +81,7 @@ function Container(props){
         })
     }
 
-console.log(plants)
+// console.log(plants)
 
     const renderBodyTR = () => {
         return plants && plants.map(({plant_id, plant_common_name, plant_latin_name, plant_image, plant_description}) => {
@@ -95,9 +95,9 @@ console.log(plants)
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                            <p class="card-title">{plant_common_name}</p>
+                                <p class="card-title">{plant_common_name}</p>
                                 <p>ipss bdhjbasdab sdsbd sdksadbakdjbasdk</p>
-                                
+                                    
                             </div>
                         </div>
                     </div>
