@@ -64,10 +64,7 @@ function Container(props){
                                 
                                 <Card.Body>
                                     <Card.Title>{remedy_name}</Card.Title>
-                                    <p class="card-title">{remedy_preparation}</p>
-                                    {/* <Card.Text>
-                                    {plant_description}
-                                    </Card.Text> */}
+                                    
                                     <Link to={`/remedy/${remedy_id}`}>Read More...</Link>
                                     
                                     
@@ -81,6 +78,7 @@ function Container(props){
             )
         })
     }
+
 
 console.log(plants)
 
@@ -98,7 +96,7 @@ console.log(plants)
                             <h5 class="card-title">{plant_common_name}</h5>
                             <h5 class="card-title">{plant_latin_name}</h5>
                             <p class="card-text">{plant_description}</p>
-                            <p class="card-text"><small class="text-muted"><a href="#">Read more...</a></small></p>
+                            
                         </div>
                     </div>
                 </div>
@@ -123,7 +121,7 @@ console.log(plants)
                         
                 </div>
 
-{/* Cards displaying items */}
+
                 <div className="col-md-8">
                     <h1>{pageName}</h1>
 
@@ -134,7 +132,7 @@ console.log(plants)
                     <div class="row row-cols-1 row-cols-md-3 g-4">
 
 
-                        {/* {cardInfo.map(renderCard)} */}
+                        
                         {renderBody()}
                         
 
