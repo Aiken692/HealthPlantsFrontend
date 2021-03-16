@@ -1,4 +1,6 @@
 import React from 'react';
+import {useState} from 'react';
+import axios from 'axios';
 import classes from '../components/login/login.scss';
 import styled from 'styled-components';
 
@@ -118,7 +120,41 @@ const Button = styled.button`
 `;
 
 
-const login = () => {
+const Login = () => {
+    const [email, setemail] = useState("");
+    const [password, setpassword] = useState("");
+
+
+    // let url ='http://localhost:5001/api/login';
+    let url ='https://health-plants-of-uganda.herokuapp.com/api/plants';
+
+const onFormSubmit = (e)=>{
+    e.preventDefault();
+    // const formData = new FormData();
+    
+    // formData.append('email', email);
+    // formData.append('password', password);
+	// const config = {
+	// 	headers: {
+	// 		'content-type' : 'multipart/form-data'
+	// 	}
+    // };
+    console.log(email);
+
+    axios.post(url, {
+        "email": email,
+        "password": password
+    })
+    .then(response => {
+                console.log(response);
+                return;
+        //     })
+		// .then(response => {
+		// 	return;
+		}).catch(error => {
+			return;
+		})
+}
 
         // const backBtn = document.getElementById('backbtn');
         // const signInButton = document.getElementById('signIn');
@@ -152,7 +188,7 @@ const login = () => {
                             <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
                             <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
                         </SocialContainer>
-                        <span>or use emain for regirstration</span>
+                        <span>or use email for regirstration</span>
                         <Input type="text" placeholder="Name" />
                         <Input type="email" placeholder="Email" />
                         <Input type="password" placeholder="Password" />
@@ -161,7 +197,7 @@ const login = () => {
                 </FormContainer>
 
                 <FormContainer className=" signinContainer">
-                    <form action="#">
+                    <form onSubmit={onFormSubmit} action="#">
                         <h1>Sign in</h1>
                         <SocialContainer className="social-container">
                             <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
@@ -170,8 +206,12 @@ const login = () => {
                         </SocialContainer>
 
                             <span>or use your account</span>
-                            <Input type="email" placeholder="Email" />
-                            <Input type="password" placeholder="Password" />
+                            <Input type="email" placeholder="Email" onChange={(event) => {
+                            setemail(event.target.value)
+                            }} />
+                            <Input type="password" placeholder="Password" onChange={(event) => {
+                            setpassword(event.target.value)
+                            }} />
                             <a href="../UserManagement" className="here"> Forgot your passsword</a>
                             
                         <Button type="submit">Sign in</Button>
@@ -186,11 +226,11 @@ const login = () => {
                             <Button className="ghost" id="signIn" onClick={zlide}>Sign In</Button>
                         </div>
 
-                        <div className="overlayPanel overlayRight">
+                        {/* <div className="overlayPanel overlayRight">
                             <h1>Hello, Friend</h1>
                             <p>Enter your personal details and start your journey with us</p>
                             <Button className="ghost" id="backbtn" onClick={slide}>Back</Button>
-                        </div>
+                        </div> */}
                     </div>
                  </div>            
             </Container>
@@ -200,4 +240,4 @@ const login = () => {
 }
 //sliding functions
 
-export default login
+export default Login

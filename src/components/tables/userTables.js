@@ -54,6 +54,7 @@ function UserTable( props ){
     const [user_full_name, setuser_full_name] = useState("");
     const [email, setemail] = useState("");
     const [phone_number, setphone_number] = useState("");
+    const [password, setpassword] = useState("");
     const [file, setFile ] = useState(null);
 
 
@@ -110,6 +111,7 @@ function UserTable( props ){
         formData.append('user_full_name', user_full_name);
         formData.append('email', email);
         formData.append('phone_number', phone_number);
+        formData.append('password', password);
         console.log(file);
         const config = {
             headers: {
@@ -117,7 +119,7 @@ function UserTable( props ){
             }
         };
     
-        Axios.post('http://localhost:5001/api/users', formData, config)
+        Axios.post( url, formData, config)
         .then(response => {
                     console.log(response);
                     return;
@@ -231,6 +233,12 @@ const onChange= (e) => {
                         <input type="tel" onChange={(event) => {
                             setphone_number(event.target.value)
                         }} class="form-control" id="phone_number" placeholder="" />
+                    </div>
+                    <div class="col-12">
+                        <label for="password" class="form-label">password</label>
+                        <input type="password" onChange={(event) => {
+                            setpassword(event.target.value)
+                        }} class="form-control" id="password" placeholder="" />
                     </div>
                     <div class="col-12">
                         <label for="myImage" class="form-label">Image</label>
