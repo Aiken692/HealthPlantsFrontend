@@ -1,14 +1,15 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
+import styled, {css} from 'styled-components/macro';
+import '../pages/contact.scss';
 import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom';
 import Aos from 'aos';
-import styled, {css} from 'styled-components/macro';
-import styles from '../pages/contact.scss';
 import Navbar from '../components/navBar/navBar';
 import Dropdown from '../components/dropdown';
 import Footer from '../components/footer';
 import * as FaIcons from "react-icons/fa";
 import { FaFacebook, FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube} from 'react-icons/fa';
 import nature from '../images/nature.jpeg'
+import { Container } from 'react-bootstrap';
 
 const ConImage= styled.img`
     position: absolute;
@@ -17,6 +18,17 @@ const ConImage= styled.img`
     width: 100vw;
     height: 100vh;
     object-fit: cover;
+`;
+
+const Section = styled.div`
+    // background: blue;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
 `;
 
 
@@ -80,11 +92,10 @@ const Contact = () => {
             <Navbar toggle={toggle}/>
             <Dropdown isOpen={isOpen} toggle={toggle}/>
 
-            <div className='container'>
+            <Section>
             
             
-                {/* <h1 style={{position: 'relative'}}>Contact Us</h1>
-                <p className='sub'>lorem ipsum</p> */}
+                
 
                 <ConImage src={nature}/>
 
@@ -92,37 +103,37 @@ const Contact = () => {
                     data-aos-duration='1000'
                     data-aos-once='true'
                     data-aos-anchor-placment='center bottom'> 
-                <div className='contact-info'>
-                    <h4>Contact Information</h4>
-                    <p>For further information about anything relating to this website, please contact us by completing the form below:</p>
-                    <div className='icon-text'>
-                            <i class="fas fa-phone-volume"><FaIcons.FaPhoneVolume/></i>
-                        <span>+44-7710-397824</span>
-                        </div>
+                        <div className='contact-info'>
+                            <h4>Contact Information</h4>
+                            <p>For further information about anything relating to this website, please contact us by completing the form below:</p>
+                            <div className='icon-text'>
+                                    <i class="fas fa-phone-volume"><FaIcons.FaPhoneVolume/></i>
+                                <span>+44-7710-397824</span>
+                                </div>
 
-                        <div className='icon-text'>
-                            <i class="fas fa-phone-volume"><FaIcons.FaEnvelope/></i>
-                        <span> jamie@blonay.co.uk</span>
+                                <div className='icon-text'>
+                                    <i class="fas fa-phone-volume"><FaIcons.FaEnvelope/></i>
+                                <span> jamie@blonay.co.uk</span>
+                                </div>
+                                <div className='icon-text'>
+                                    <i class="fas fa-phone-volume"><FaIcons.FaMapMarkerAlt/></i>
+                                <span>Plot 57B, Luthuli Avenue, Bugolobi Kampala, Uganda</span>
+                            </div>
+                            <div className='social-media'>
+                                <a href="#" className="icon-circle">
+                                    <Facebook/>
+                                </a>
+                                <a href="#" className="icon-circle">
+                                    <Instagram/>
+                                </a>
+                                <a href="#" className="icon-circle">
+                                    <LinkedIn/>
+                                </a>
+                                <a href="#" className="icon-circle">
+                                    <Youtube/>
+                                </a>
+                            </div>
                         </div>
-                        <div className='icon-text'>
-                            <i class="fas fa-phone-volume"><FaIcons.FaMapMarkerAlt/></i>
-                        <span>Plot 57B, Luthuli Avenue, Bugolobi Kampala, Uganda</span>
-                    </div>
-                    <div className='social-media'>
-                        <a href="#" className="icon-circle">
-                            <Facebook/>
-                        </a>
-                        <a href="#" className="icon-circle">
-                            <Instagram/>
-                        </a>
-                        <a href="#" className="icon-circle">
-                            <LinkedIn/>
-                        </a>
-                        <a href="#" className="icon-circle">
-                            <Youtube/>
-                        </a>
-                    </div>
-                </div>
 
                         <form>
                             <div className="col">
@@ -167,7 +178,7 @@ const Contact = () => {
 
                         </form>
                     </div>
-                </div>
+            </Section>
 
             
                 <Footer/> 
