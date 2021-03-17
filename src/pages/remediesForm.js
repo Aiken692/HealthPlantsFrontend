@@ -88,7 +88,7 @@ export default function RemediesForm(props) {
             }
         };
     
-        axios.post(url, formData, config)
+        axios.post('http://localhost:5001/api/remedies', formData, config)
         .then(response => {
                     console.log(response);
                     return;

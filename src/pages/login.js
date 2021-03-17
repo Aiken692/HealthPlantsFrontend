@@ -3,6 +3,7 @@ import {useState} from 'react';
 import axios from 'axios';
 import classes from '../components/login/login.scss';
 import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 
 //____ body
 const FormBody = styled.body`
@@ -121,8 +122,10 @@ const Button = styled.button`
 
 
 const Login = () => {
+    const state = { redirect: null };
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
+    const [redirect, setredirect] = useState("");
 
 
     let url ='http://localhost:5001/api/login';
@@ -147,6 +150,13 @@ const onFormSubmit = (e)=>{
     })
     .then(response => {
                 console.log(response);
+
+                if (response.status === 200){
+                    console.log("we get into the if...")
+                    // setredirect('/userManagement');
+                    this.setState({ redirect: "/userManagement" });
+                    return <Redirect to={this.state.redirect}/>
+                }else console.log("Failing to redirect");
                 return;
         //     })
 		// .then(response => {
