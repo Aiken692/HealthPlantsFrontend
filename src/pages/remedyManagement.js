@@ -62,33 +62,20 @@ export default function Remedies() {
     const [records, setRecords] = useState(List.getAllRemedies())
     const [ openPopup, setOpenPopup] = useState(false)
 
-    // Filteing of data.
-    const [filterFn, setFilterFn] = useState("");
-
 
 
 
     const {
         TblContainer,
         TblHead
-    } = useTable(records, headCells, filterFn);
+    } = useTable(records, headCells);
 
     // This is to define the search function
     const handleSearch = e =>  {
         let target = e.target;
-        setFilterFn({
-            fn: items => {
-                if (target.value == "");
-            }
-        })
+        
     }
-    // function search(rows){
-    //     return rows.filter((row) => row.remedy_name.toLoweCase().indexOf(q) > -1);
-    // }
-    // // the handle search function is not complete.
-
-
-
+   
     // const addOrEdit = (remedy, resetForm) => {
     //     List.insertRemedy(remedy)
     //      resetForm();
