@@ -63,6 +63,33 @@ function PlantProfile(){
     const [isOpen, setIsOpen] = useState(false)
     const [done, setDone] = useState(undefined);
 
+    const [comment_body, setComment] =useState("")
+    const [commentList, setCommentList] = useState([])
+    
+    const handleChangeComment = (event) =>{
+        setComment(event.target.value)
+    }
+    
+    const addComment = () =>{
+        Axios.post("http://localhost:5001/api/comments", {
+          comment_body:comment_body
+        }).then(() =>{
+          setCommentList([
+            ...commentList, {comment_body:comment_body}
+          ])
+        })
+    }
+
+    const getComment = () =>{
+        Axios.get("http://localhost:5001/api/comments").then((response) => {
+          setCommentList(response.data)
+        })
+      }
+
+    useEffect (()=>{
+        getComment()
+    },[])
+
     const toggle = () => {
         setIsOpen(!isOpen)
       }
@@ -192,16 +219,29 @@ function PlantProfile(){
                                                  
                                                     </p>
                                                 </div>
+                                                <input type="checkbox" id="comment-toggle" />
                                                 <div className="review-footer">
                                                     <span className="rating">*****</span>
-                                                    <h5 className="comments"> comments : 10</h5>
+                                                    <label for="comment-toggle" className="comment-icon comments">comments</label>
+                                                    {/* <h5 className="comments"> comments : 10</h5> */}
                                                 </div>
-                                                <div className="reviewComments">
+                                                <div className="review-comments">
                                                     Rate review<span className="rating">*****</span> <br />
-                                                    <span className="inputComment">
-                                                        <input type="text" placeholder="Add comment" />
-                                                        <button primary>Comment</button>
-                                                    </span>
+                                                    <div className="inputComment">
+                                                        <input type="text" placeholder="Add comment" onChange={handleChangeComment} />
+                                                        <button primary onClick={addComment}>Comment</button>
+                                                    </div>
+                                                    <div className="comments">
+                                                        <div className="singleComment">
+                                                        {commentList.map((val, key) =>{
+                                                            return (
+                                                                <ul>
+                                                                    <li>{val.comment_body}</li>
+                                                                </ul>
+                                                            )
+                                                        })}
+                                                        </div>
+                                                    </div>
                                                     
                                                 </div>
                                                 

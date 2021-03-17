@@ -238,13 +238,13 @@ function details(props){
                                 </div>
                                 <div className="comments">
                                     <div className="singleComment">
-                                    {commentList.map((val, key) =>{
+                                    {/* {commentList.map((val, key) =>{
                                         return (
                                             <ul>
                                                 <li>{val.comment}</li>
                                             </ul>
                                         )
-                                    })}
+                                    })} */}
                                     </div>
                                 </div>
                                 
