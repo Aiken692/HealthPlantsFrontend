@@ -119,7 +119,7 @@ function UserTable( props ){
             }
         };
     
-        Axios.post( url, formData, config)
+        Axios.post( 'http://localhost:5001/api/users', formData, config)
         .then(response => {
                     console.log(response);
                     return;
@@ -190,16 +190,6 @@ const onChange= (e) => {
                         {renderBody()}
                     </tbody>
                 </table>
-                    {/* <tr>
-                        <th>1</th>
-                        <td>001</td>
-                        <td>Man</td>
-                        <td>zen</td>
-                        <td>Manzen@mail.com</td>
-                        <td>001330</td>
-                        <td><Button variant="primary" onClick={handleShowEdit}> E</Button></td>
-                        <td><Button variant="primary" onClick={handleShowDel}> D</Button></td>
-                    </tr> */}
 
             
             </div>

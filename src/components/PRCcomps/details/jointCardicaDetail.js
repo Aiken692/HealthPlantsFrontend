@@ -56,7 +56,7 @@ const CardFooter = styled.div`
 `;
 function Details(){
 
-    const [comment, setComment] =useState("")
+    const [comment_body, setComment] =useState("")
     const [commentList, setCommentList] = useState([])
     
     const handleChangeComment = (event) =>{
@@ -65,10 +65,10 @@ function Details(){
     
     const addComment = () =>{
         Axios.post("http://localhost:5001/api/comments", {
-          comment:comment
+          comment_body:comment_body
         }).then(() =>{
           setCommentList([
-            ...commentList, {comment:comment}
+            ...commentList, {comment_body:comment_body}
           ])
         })
     }
@@ -184,7 +184,7 @@ function Details(){
                                     {commentList.map((val, key) =>{
                                         return (
                                             <ul>
-                                                <li>{val.comment}</li>
+                                                <li>{val.comment_body}</li>
                                             </ul>
                                         )
                                     })}
