@@ -71,7 +71,7 @@ function PlantProfile(){
     }
     
     const addComment = () =>{
-        Axios.post("http://localhost:5001/api/comments", {
+        axios.post("http://localhost:5001/api/comments", {
           comment_body:comment_body
         }).then(() =>{
           setCommentList([
@@ -81,7 +81,7 @@ function PlantProfile(){
     }
 
     const getComment = () =>{
-        Axios.get("http://localhost:5001/api/comments").then((response) => {
+        axios.get("http://localhost:5001/api/comments").then((response) => {
           setCommentList(response.data)
         })
       }
@@ -222,7 +222,7 @@ function PlantProfile(){
                                                 <input type="checkbox" id="comment-toggle" />
                                                 <div className="review-footer">
                                                     <span className="rating">*****</span>
-                                                    <label for="comment-toggle" className="comment-icon comments">comments</label>
+                                                    <label for="comment-toggle" className="comment-icon comments">comments <span class="badge rounded-pill bg-success">99+</span></label>
                                                     {/* <h5 className="comments"> comments : 10</h5> */}
                                                 </div>
                                                 <div className="review-comments">
@@ -232,11 +232,14 @@ function PlantProfile(){
                                                         <button primary onClick={addComment}>Comment</button>
                                                     </div>
                                                     <div className="comments">
-                                                        <div className="singleComment">
+                                                        <div className="">
                                                         {commentList.map((val, key) =>{
                                                             return (
                                                                 <ul>
-                                                                    <li>{val.comment_body}</li>
+                                                                    <li className="singleComment">
+                                                                        <div>M</div>
+                                                                        {val.comment_body}
+                                                                    </li>
                                                                 </ul>
                                                             )
                                                         })}
