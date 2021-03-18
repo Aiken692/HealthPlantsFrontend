@@ -237,14 +237,17 @@ function details(props){
                                     <button primary onClick={addComment}>Comment</button>
                                 </div>
                                 <div className="comments">
-                                    <div className="singleComment">
-                                    {/* {commentList.map((val, key) =>{
+                                    <div className="">
+                                    {commentList.map((val, key) =>{
                                         return (
                                             <ul>
-                                                <li>{val.comment}</li>
+                                                <li className="singleComment">
+                                                    <div>B</div>
+                                                    {val.comment}
+                                                </li>
                                             </ul>
                                         )
-                                    })} */}
+                                    })}
                                     </div>
                                 </div>
                                 

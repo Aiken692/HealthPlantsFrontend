@@ -111,3 +111,23 @@
         display: block;
     }
 }
+
+
+.singleComment{
+    list-style: none;
+    // background-color: #007000;
+    padding: .8rem 0;
+    border: 1px solid #CAFFCA;
+    border-radius: 3px;
+    display: flex;
+    div{
+        width: 1.8rem;
+        height: 1.8rem;
+        padding: .3rem .5rem;
+        // font-size: 3rem;
+        border-radius: 50%;
+        margin:0 1rem;
+        background-color: #007000;
+        color: white;
+    }
+}
