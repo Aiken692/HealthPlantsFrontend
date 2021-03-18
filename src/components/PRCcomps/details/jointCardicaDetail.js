@@ -196,13 +196,7 @@ function Details(){
                         </div>
 
                         <div className="single-review">
-                            <div className="review-header">
-                                <span className="name">Emily Queen Tusiime</span>
-                                <span className="reviewd">reviewed</span>
-                                <span className="remedy">Ginger Tea</span>
-                                <br />
-                                <span className="date">11/11/2020</span>
-                            </div>
+                            
                             <div className="review-body">
                                 <p>
                                 Lorem Ipsum is simply dummy text 

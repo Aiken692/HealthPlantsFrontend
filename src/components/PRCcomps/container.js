@@ -5,7 +5,7 @@ import Jamie from "../../images/Jamie1.JPG";
 import { Link } from 'react-router-dom';
 
 // Importing the cad component.
-import { Card } from "react-bootstrap"; 
+import Card  from "react-bootstrap/Card"; 
 
 const Section = styled.section`
     width: 100%;

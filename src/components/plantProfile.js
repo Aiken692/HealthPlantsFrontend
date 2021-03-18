@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ReactLoading from 'react-loading';
 import { useParams } from 'react-router-dom';
-import axios from 'axios'
+import Axios from 'axios'
 import styled from 'styled-components';
 import GloballStyle from '../globalStyles';
 import Navbar from './navBar/navBar';
@@ -109,7 +109,7 @@ function PlantProfile(){
     
     useEffect(() => {
         setTimeout(() => {
-            axios.get(url)
+            Axios.get(url)
             .then(response => {
                 setPlant(response.data)
                 
