@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Axios from 'axios';
 import Jamie from "../../images/Jamie1.JPG";
 import { Link } from 'react-router-dom';
+import { Scrollbars } from 'react-custom-scrollbars'
 
 // Importing the cad component.
 import Card  from "react-bootstrap/Card"; 
@@ -119,10 +120,12 @@ function Container(props){
                 <div className="col-md-4">
                     <h1>Top Reviews</h1>
 
+                    
                     <hr style={{border: '2px solid black'}} />
+                    <Scrollbars style={{ width: '100%', height: '100%'}}>
                     {renderBodyTR()}
                     
-                        
+                     </Scrollbars>   
                 </div>
 
 {/* Cards displaying items */}
@@ -137,6 +140,8 @@ function Container(props){
 
 
                         {/* {cardInfo.map(renderCard)} */}
+
+                        
                         {renderBody()}
                         
 
