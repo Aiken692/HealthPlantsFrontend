@@ -5,7 +5,7 @@ import Jamie from "../../images/Jamie1.JPG";
 import { Link } from 'react-router-dom';
 
 // Importing the cad component.
-import { Card } from "react-bootstrap"; 
+import Card  from "react-bootstrap/Card"; 
 
 const Section = styled.section`
     width: 100%;
@@ -81,7 +81,7 @@ function Container(props){
         })
     }
 
-console.log(plants)
+// console.log(plants)
 
     const renderBodyTR = () => {
         return plants && plants.map(({plant_id, plant_common_name, plant_latin_name, plant_image, plant_description}) => {
@@ -95,9 +95,12 @@ console.log(plants)
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                            <p class="card-title">{plant_common_name}</p>
-                                <p>ipss bdhjbasdab sdsbd sdksadbakdjbasdk</p>
-                                
+                                <p class="card-title">Emily Queen Tusiime</p>
+                                <p>Lorem Ipsum is simply dummy text 
+                                                    of the printing and typesetting industry.
+                                                   
+                                                     </p>
+                                    
                             </div>
                         </div>
                     </div>

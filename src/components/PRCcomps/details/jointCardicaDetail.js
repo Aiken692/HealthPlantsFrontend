@@ -132,7 +132,7 @@ function Details(){
                 <div className="col-md-8">
                     
                     <div className="description">
-                    <h3>Descrition</h3>
+                    <h3>Description</h3>
                         <p>The lemon, Citrus limon, is a species of small evergreen tree in the flowering plant family Rutaceae, native to South Asia, primarily North eastern India.
                             The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, which has both culinary
                             and cleaning uses.[2] The pulp and rind are also used in cooking and baking. The juice of the lemon is about 5% to 6% citric acid, with a pH of around 2.2
@@ -196,13 +196,7 @@ function Details(){
                         </div>
 
                         <div className="single-review">
-                            <div className="review-header">
-                                <span className="name">Emily Queen Tusiime</span>
-                                <span className="reviewd">reviewed</span>
-                                <span className="remedy">Ginger Tea</span>
-                                <br />
-                                <span className="date">11/11/2020</span>
-                            </div>
+                            
                             <div className="review-body">
                                 <p>
                                 Lorem Ipsum is simply dummy text 
