@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ReactLoading from 'react-loading';
 import { useParams } from 'react-router-dom';
-import Axios from 'axios'
+import axios from 'axios'
 import styled from 'styled-components';
 import GloballStyle from '../globalStyles';
 import Navbar from './navBar/navBar';
@@ -109,7 +109,7 @@ function PlantProfile(){
     
     useEffect(() => {
         setTimeout(() => {
-            Axios.get(url)
+            axios.get(url)
             .then(response => {
                 setPlant(response.data)
                 
@@ -236,7 +236,7 @@ function PlantProfile(){
                                                             return (
                                                                 <ul>
                                                                     <li className="singleComment">
-                                                                        <div>M</div>
+                                                                        {/* <div>M</div> */}
                                                                         {val.comment_body}
                                                                     </li>
                                                                 </ul>
