@@ -52,7 +52,7 @@ function Container(props){
 
         return plants && plants.map(({plant_id, plant_common_name, plant_latin_name, plant_image, plant_description}) => {
 
-            console.log(plant_image)
+            // console.log(plant_image)
             return (
 
                 <div>

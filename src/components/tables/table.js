@@ -1,5 +1,6 @@
 import React, { useState} from 'react';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Modal } from 'react-bootstrap';
 import styled from 'styled-components';
 import Axios from 'axios';
@@ -29,6 +30,8 @@ function Table(){
 
     const [plants, setPlants] = useState([]);
 
+    const[selectedPlant, setselectedPlant] = useState({});
+
     const getData = async () => {
         // let url ='http://localhost:5001/api/plants';
         let url ='https://health-plants-of-uganda.herokuapp.com/api/plants';
@@ -50,14 +53,22 @@ function Table(){
         })
     }
 
+    const editPlant = () => {
+        
+        let b = document.getElementById("plant_id");
+        console.log(b);
+    }
+
     const renderBody = () => {
         return plants && plants.map(({plant_id, plant_common_name, plant_latin_name}) => {
+            console.log(plants);
             return (
                 <tr key = {plant_id}>
-                    <td>{plant_id}</td>
+                    <td id="plant_id">{plant_id}</td>
                     <td>{plant_common_name}</td>
                     <td>{plant_latin_name}</td>
-                    <td><button type="button" className="btn btn-sm"><faIcons.FaEdit /></button></td>
+                    <td><button onClick={editPlant} type="button" className="btn btn-sm" >
+                        <faIcons.FaEdit /></button></td>
                     <td><button type="button" className="btn btn-sm"><mdIcons.MdDelete /></button></td>
                 </tr>
             )
