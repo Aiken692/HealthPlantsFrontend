@@ -1,9 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
 import {useState} from 'react';
 import axios from 'axios';
 import classes from '../components/login/login.scss';
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
+import UserManagement from './userManagement';
 
 //____ body
 const FormBody = styled.body`
@@ -122,41 +124,31 @@ const Button = styled.button`
 
 
 const Login = () => {
-    const state = { redirect: null };
+
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
-    const [redirect, setredirect] = useState("");
+    // const [redirect, setRedirect] = useState(false);
 
 
+    let history = useHistory();
     let url ='http://localhost:5001/api/login';
     // let url ='https://health-plants-of-uganda.herokuapp.com/api/plants';
 
 const onFormSubmit = (e)=>{
     e.preventDefault();
-    // const formData = new FormData();
-    
-    // formData.append('email', email);
-    // formData.append('password', password);
-	// const config = {
-	// 	headers: {
-	// 		'content-type' : 'multipart/form-data'
-	// 	}
-    // };
-    console.log(email);
 
     axios.post(url, {
         "email": email,
         "password": password
     })
     .then(response => {
-                console.log(response);
 
-                if (response.status === 200){
-                    console.log("we get into the if...")
-                    // setredirect('/userManagement');
-                    this.setState({ redirect: "/userManagement" });
-                    return <Redirect to={this.state.redirect}/>
-                }else console.log("Failing to redirect");
+                if (response.data.code === 200){
+
+                    history.push('../userManagement');
+
+                }else 
+                history.push('../');
                 return;
         //     })
 		// .then(response => {
