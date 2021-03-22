@@ -26,8 +26,10 @@
     "react-loading": "^2.0.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-validation": "^3.0.7",
     "sass": "^1.32.8",
     "styled-components": "^5.2.1",
+    "validator": "^13.5.2",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

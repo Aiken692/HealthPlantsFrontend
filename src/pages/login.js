@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
-import {useState} from 'react';
 import axios from 'axios';
 import classes from '../components/login/login.scss';
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
-import UserManagement from './userManagement';
+import validator from 'validator'
 
 //____ body
 const FormBody = styled.body`
@@ -129,6 +128,38 @@ const Login = () => {
     const [password, setpassword] = useState("");
     // const [redirect, setRedirect] = useState(false);
 
+    // Validation start.
+    const [emailErr, setEmailErr] = useState({});
+    const [passwordErr, setpasswordErr] = useState({});
+
+    const formValidation = () => {
+        const emailErr = {};
+        const passwordErr = {};
+        let isValid = true;
+
+        if(email.trim().length < 5){
+            emailErr.emailShort = "Email is too short";
+            isValid = false;
+        };
+
+        // if(validator.isEmail(email)){
+        //     emailErr.emailIsInvalid = "Email is invalid";
+        //     isValid= false;
+        // }
+
+        if(password.trim().length < 5){
+            passwordErr.passwordShort = "Password is too short";
+            isValid = false;
+        }
+
+        setEmailErr(emailErr);
+        setpasswordErr(passwordErr);
+        return isValid;
+    }
+      
+
+    //Validation End
+
 
     let history = useHistory();
     let url ='http://localhost:5001/api/login';
@@ -136,6 +167,13 @@ const Login = () => {
 
 const onFormSubmit = (e)=>{
     e.preventDefault();
+
+    const isValid = formValidation();
+    if(isValid){
+        // send this data to your backend or some extenal api
+        setemail("");
+        setpassword("");
+    }
 
     axios.post(url, {
         "email": email,
@@ -148,7 +186,7 @@ const onFormSubmit = (e)=>{
                     history.push('../userManagement');
 
                 }else 
-                history.push('../');
+                history.push('../login');
                 return;
         //     })
 		// .then(response => {
@@ -208,12 +246,18 @@ const onFormSubmit = (e)=>{
                         </SocialContainer>
 
                             <span>or use your account</span>
-                            <Input type="email" placeholder="Email" onChange={(event) => {
+                            <Input type="email" value={email} className="form-control" placeholder="Email" onChange={(event) => {
                             setemail(event.target.value)
                             }} />
-                            <Input type="password" placeholder="Password" onChange={(event) => {
+                            {Object.keys(emailErr).map((key)=>{
+                                return <div style={{color : "red"}}>{emailErr[key]}</div>
+                            })}
+                            <Input type="password" value={password} className="form-control" placeholder="Password" onChange={(event) => {
                             setpassword(event.target.value)
                             }} />
+                            {Object.keys(passwordErr).map((key)=>{
+                                return <div style={{color : "red"}}>{passwordErr[key]}</div>
+                            })}
                             <a href="../UserManagement" className="here"> Forgot your passsword</a>
                             
                         <Button type="submit">Sign in</Button>
