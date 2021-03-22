@@ -59,7 +59,7 @@ export default function Remedies() {
 
     const classes = useStyles();
     const [recordForEdit, setRecordForEdit] = useState(null)
-    const [records, setRecords] = useState(List.getAllRemedies())
+    const [records, setRecords] = useState(null)
     const [ openPopup, setOpenPopup] = useState(false)
 
 
