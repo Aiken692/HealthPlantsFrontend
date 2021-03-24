@@ -66,13 +66,17 @@ function PlantProfile(){
     const [comment_body, setComment] =useState("")
     const [commentList, setCommentList] = useState([])
 
-    const [review_body , setReviewBody] = useState(false);
+    const [review_description , setReviewBody] = useState(false);
     const [reviewList, setReviewList] = useState([])
     const handleWriteReview = () => setReviewBody(true);
     const handleCloseWriteReview = () => setReviewBody(false);
     
     const handleChangeComment = (event) =>{
         setComment(event.target.value)
+    }
+
+    const handleChangeReview = (event) =>{
+        setReviewBody(event.target.value)
     }
     
     const addComment = () =>{
@@ -93,10 +97,10 @@ function PlantProfile(){
 
     const addReview = () =>{
         axios.post("http://localhost:5001/api/reviews", {
-            review_body:review_body
+            review_description:review_description
         }).then(() =>{
             setReviewList([
-            ...reviewList, {review_body:review_body}
+            ...reviewList, {review_description:review_description}
             ])
         })
     }
@@ -238,7 +242,7 @@ function PlantProfile(){
                                                                 <span className="date">{val.review_date}</span>
                                                             </div>
                                                             <div className="review-body">
-                                                                {val.review_body}
+                                                                {val.review_description}
                                                                 {val.review_id}
                                                             </div>
                                                             <input type="checkbox" id="comment-toggle" />
@@ -288,7 +292,7 @@ function PlantProfile(){
                     }
                     </Section>
 
-                    <Modal size="lg" show={review_body} onHide={handleCloseWriteReview} className="writeReviewModal">
+                    <Modal size="lg" show={review_description} onHide={handleCloseWriteReview} className="writeReviewModal">
                         <div className="reviewContainer" >
                             <Modal.Header className="reviewHeader" closeButton>
                                 <Modal.Title>
@@ -296,7 +300,7 @@ function PlantProfile(){
                                 </Modal.Title>
                             </Modal.Header>
                             <div className="col-12">                                
-                                <textarea rows="8" class="form-control review-text-area" id="writeReview" placeholder="" onChange={handleChangeComment} />
+                                <textarea rows="8" class="form-control review-text-area" id="writeReview" placeholder="" onChange={handleChangeReview} />
                             </div>
                             <Modal.Footer className="modalFooter">
                                 <Button variant="secondary" className="add" type="submit" onClick={addReview} onclick={handleCloseWriteReview}>
