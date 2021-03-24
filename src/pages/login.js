@@ -132,30 +132,30 @@ const Login = () => {
     const [emailErr, setEmailErr] = useState({});
     const [passwordErr, setpasswordErr] = useState({});
 
-    const formValidation = () => {
-        const emailErr = {};
-        const passwordErr = {};
-        let isValid = true;
+    // const formValidation = () => {
+    //     const emailErr = {};
+    //     const passwordErr = {};
+    //     let isValid = true;
 
-        if(email.trim().length < 5){
-            emailErr.emailShort = "Email is too short";
-            isValid = false;
-        };
+    //     if(email.trim().length < 5){
+    //         emailErr.emailShort = "Email is too short";
+    //         isValid = false;
+    //     };
 
-        // if(validator.isEmail(email)){
-        //     emailErr.emailIsInvalid = "Email is invalid";
-        //     isValid= false;
-        // }
+    //     // if(validator.isEmail(email)){
+    //     //     emailErr.emailIsInvalid = "Email is invalid";
+    //     //     isValid= false;
+    //     // }
 
-        if(password.trim().length < 5){
-            passwordErr.passwordShort = "Password is too short";
-            isValid = false;
-        }
+    //     if(password.trim().length < 5){
+    //         passwordErr.passwordShort = "Password is too short";
+    //         isValid = false;
+    //     }
 
-        setEmailErr(emailErr);
-        setpasswordErr(passwordErr);
-        return isValid;
-    }
+    //     setEmailErr(emailErr);
+    //     setpasswordErr(passwordErr);
+    //     return isValid;
+    // }
       
 
     //Validation End
@@ -168,12 +168,12 @@ const Login = () => {
 const onFormSubmit = (e)=>{
     e.preventDefault();
 
-    const isValid = formValidation();
-    if(isValid){
-        // send this data to your backend or some extenal api
-        setemail("");
-        setpassword("");
-    }
+    // const isValid = formValidation();
+    // if(isValid){
+    //     // send this data to your backend or some extenal api
+    //     setemail("");
+    //     setpassword("");
+    // }
 
     axios.post(url, {
         "email": email,

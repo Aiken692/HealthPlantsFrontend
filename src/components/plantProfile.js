@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import ReactLoading from 'react-loading';
-import { useParams } from 'react-router-dom';
+import { useParams, render } from 'react-router-dom';
 import axios from 'axios'
 import styled from 'styled-components';
 import GloballStyle from '../globalStyles';
 import Navbar from './navBar/navBar';
 import Dropdown from './dropdown';
 import Footer from './footer';
+import StarsRating from 'stars-rating'
 
 const Section = styled.section`
     width: 100%;
@@ -56,6 +57,10 @@ const CardFooter = styled.div`
 `;
 
 // jhbshabs
+
+const ratingChanged = (newRating) => {
+    console.log(newRating)
+  }
 
 function PlantProfile(){
 
@@ -220,16 +225,36 @@ function PlantProfile(){
                                                 </div>
                                                 <input type="checkbox" id="comment-toggle" />
                                                 <div className="review-footer">
-                                                    <span className="rating">*****</span>
+                                                        Rate review<span className="rating">  <StarsRating
+                                                        count={5}
+                                                        onChange={ratingChanged}
+                                                        size={24}
+                                                        color2={'#029602'} /></span>
+                                                    
                                                     <label for="comment-toggle" className="comment-icon comments">comments <span class="badge rounded-pill bg-success">99+</span></label>
                                                     {/* <h5 className="comments"> comments : 10</h5> */}
                                                 </div>
                                                 <div className="review-comments">
-                                                    Rate review<span className="rating">*****</span> <br />
-                                                    <div className="inputComment">
-                                                        <input type="text" placeholder="Add comment" onChange={handleChangeComment} />
-                                                        <button primary onClick={addComment}>Comment</button>
-                                                    </div>
+                                                    {/* Rate review<span className="rating">  <StarsRating
+                                                        count={5}
+                                                        onChange={ratingChanged}
+                                                        size={24}
+                                                        color2={'#029602'} />, document.getElementById('where-to-render')</span>
+                                                    
+                                                    
+                                                        
+                                                        
+                                                     <br /> */}
+                                                    <form>
+                                                        <div className="inputComment">
+                                                            <input type="text" placeholder="Add comment" onChange={handleChangeComment} />
+                                                            <button type="submit" primary onClick={addComment}>Comment</button>
+                                                        </div>
+                                                    </form>
+                                                        {/* <div className="inputComment">
+                                                            <input type="text" placeholder="Add comment" onChange={handleChangeComment} />
+                                                            <button type="submit" primary onClick={addComment}>Comment</button>
+                                                        </div> */}
                                                     <div className="comments">
                                                         <div className="">
                                                         {commentList.map((val, key) =>{

@@ -28,6 +28,7 @@
     "react-scripts": "4.0.3",
     "react-validation": "^3.0.7",
     "sass": "^1.32.8",
+    "stars-rating": "^1.1.0",
     "styled-components": "^5.2.1",
     "validator": "^13.5.2",
     "web-vitals": "^1.1.0"
