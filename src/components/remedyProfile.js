@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { Button, Modal } from 'react-bootstrap';
 import ReactLoading from 'react-loading';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
@@ -25,7 +26,7 @@ const Container = styled.div`
     padding:5rem;
 `;
 
-const Button = styled.button`
+const WriteReview = styled.button`
     border-radius:25px;
     background-color:#CAFFCA;
     color:#007000;
@@ -64,9 +65,18 @@ function RemedyProfile(){
 
     const [comment_body, setComment] =useState("")
     const [commentList, setCommentList] = useState([])
+
+    const [review_description , setReviewBody] = useState(false);
+    const [reviewList, setReviewList] = useState([])
+    const handleWriteReview = () => setReviewBody(true);
+    const handleCloseWriteReview = () => setReviewBody(false);
     
     const handleChangeComment = (event) =>{
         setComment(event.target.value)
+    }
+
+    const handleChangeReview = (event) =>{
+        setReviewBody(event.target.value)
     }
     
     const addComment = () =>{
@@ -85,8 +95,24 @@ function RemedyProfile(){
         })
       }
 
+      const addReview = () =>{
+        axios.post("http://localhost:5001/api/reviews", {
+            review_description:review_description
+        }).then(() =>{
+            setReviewList([
+            ...reviewList, {review_description:review_description}
+            ])
+        })
+    }
+
+    const getReview = () =>{
+        axios.get("http://localhost:5001/api/reviews").then((response) => {
+          setReviewList(response.data)
+        })
+      }
     useEffect (()=>{
         getComment()
+        getReview()
     },[])
 
 
@@ -148,7 +174,7 @@ function RemedyProfile(){
                                             <h4>{singleRemedy.remedy_name}</h4>
                                             
                                        
-                                        <Button>write a Review</Button>
+                                        <WriteReview onClick={handleWriteReview}>write a Review</WriteReview>
                                         <h4>plant varianst</h4>
                                         <hr />
                                         <div className="row">
@@ -201,54 +227,55 @@ function RemedyProfile(){
 
                                         <div className="reviews">
                                         <h3>Reviews</h3>
-                                            <div className="single-review">
-                                                <div className="review-header">
-                                                    <span className="name">Emily Queen Tusiime</span>
-                                                    <span className="reviewd">reviewed</span>
-                                                    <span className="remedy">Ginger Tea</span>
-                                                    <br />
-                                                    <span className="date">11/11/2020</span>
-                                                </div>
-                                                <div className="review-body">
-                                                    <p>
-                                                    Lorem Ipsum is simply dummy text 
-                                                    of the printing and typesetting industry.
-                                                    Lorem Ipsum has been the industry's standard
-                                                    dummy text ever since the 1500s, when an unknown
-                                                    printer took a galley of type and scrambled
-                                                 
-                                                    </p>
-                                                </div>
-                                                <input type="checkbox" id="comment-toggle" />
-                                                <div className="review-footer">
-                                                    <span className="rating">*****</span>
-                                                    <label for="comment-toggle" className="comment-icon comments">comments <span class="badge rounded-pill bg-success">99+</span></label>
-                                                    {/* <h5 className="comments"> comments : 10</h5> */}
-                                                </div>
-                                                <div className="review-comments">
-                                                    Rate review<span className="rating">*****</span> <br />
-                                                    <div className="inputComment">
-                                                        <input type="text" placeholder="Add comment" onChange={handleChangeComment} />
-                                                        <button primary onClick={addComment}>Comment</button>
-                                                    </div>
-                                                    <div className="comments">
-                                                        <div className="">
-                                                        {commentList.map((val, key) =>{
-                                                            return (
-                                                                <ul>
-                                                                    <li className="singleComment">
-                                                                        <div>M</div>
-                                                                        {val.comment_body}
-                                                                    </li>
-                                                                </ul>
-                                                            )
-                                                        })}
-                                                        </div>
-                                                    </div>
-                                                    
-                                                </div>
-                                                
-                                            </div>
+                                        {reviewList.map((val, key) =>{
+                                            return (
+                                                <ul>
+                                                    <li className="single-review">
+                                                        <div>
+                                                            <div className="review-header">                                                                
+                                                                <span className="name">{val.user_full_name}</span>
+                                                                <span className="reviewd">reviewed</span>                                                                
+                                                                <span className="remedy">{val.remedy_name}</span>
+                                                                <br />                                                                
+                                                                <span className="date">{val.review_date}</span>
+                                                            </div>
+                                                            <div className="review-body">
+                                                                {val.review_description}
+                                                                {val.review_id}
+                                                            </div>
+                                                            <input type="checkbox" id="comment-toggle" />
+                                                            <div className="review-footer">
+                                                                <span className="rating">*****</span>
+                                                                <label for="comment-toggle" className="comment-icon comments">comments <span class="badge rounded-pill bg-success">99+</span></label>
+                                                                {/* <h5 className="comments"> comments : 10</h5> */}
+                                                            </div>
+                                                            <div className="review-comments">
+                                                                Rate review<span className="rating">*****</span> <br />
+                                                                <div className="inputComment">
+                                                                    <input type="text" placeholder="Add comment" onChange={handleChangeComment} />
+                                                                    <button primary onClick={addComment}>Comment</button>
+                                                                </div>
+                                                                <div className="comments">
+                                                                    <div className="">
+                                                                    {commentList.map((val, key) =>{
+                                                                        return (
+                                                                            <ul>
+                                                                                <li className="singleComment">
+                                                                                    <div>M</div>
+                                                                                    {val.comment_body}
+                                                                                </li>
+                                                                            </ul>
+                                                                        )
+                                                                    })}
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>                                                        
+                                                    </li>
+                                                </ul>
+                                            )
+                                        })}
 
                                            
                                         </div>
@@ -260,6 +287,28 @@ function RemedyProfile(){
                         ))
                     }
                             </Section>
+
+                            <Modal size="lg" show={review_description} onHide={handleCloseWriteReview} className="writeReviewModal">
+                                <div className="reviewContainer" >
+                                    <Modal.Header className="reviewHeader" closeButton>
+                                        <Modal.Title>
+                                            <label for="writeReview" class="form-label">Write Review</label>
+                                        </Modal.Title>
+                                    </Modal.Header>
+                                    <div className="col-12">                                
+                                        <textarea rows="8" class="form-control review-text-area" id="writeReview" placeholder="" onChange={handleChangeReview} />
+                                    </div>
+                                    <Modal.Footer className="modalFooter">
+                                        <Button variant="secondary" className="add" type="submit" onClick={addReview} onclick={handleCloseWriteReview}>
+                                            Submit
+                                        </Button>
+                                        <Button variant="primary" onClick={handleCloseWriteReview} className="cancel">
+                                            Cancel
+                                        </Button>
+                                    </Modal.Footer>
+                                </div>
+                            </Modal>
+
                             <Footer/>
                 </>
         )

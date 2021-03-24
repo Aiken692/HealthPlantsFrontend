@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Modal } from 'react-bootstrap';
 import styled from 'styled-components';
 import '../../styles/componentStyles.scss';
 import './details.scss';
@@ -24,7 +25,7 @@ const Container = styled.div`
     } */
 `;
 
-const Button = styled.button`
+const WriteReview = styled.button`
     border-radius:25px;
     background-color:#CAFFCA;
     color:#007000;
@@ -60,6 +61,11 @@ function details(props){
 
     const [comment, setComment] =useState("")
     const [commentList, setCommentList] = useState([])
+
+    const [review_body , setReviewBody] = useState(false);
+    const [reviewList, setReviewList] = useState([])
+    const handleWriteReview = () => setReviewBody(true);
+    const handleCloseWriteReview = () => setReviewBody(false);
     
     const handleChangeComment = (event) =>{
         setComment(event.target.value)
@@ -80,9 +86,26 @@ function details(props){
           setCommentList(response.data)
         })
       }
+    
+      const addReview = () =>{
+        axios.post("http://localhost:5001/api/reviews", {
+            review_body:review_body
+        }).then(() =>{
+            setReviewList([
+            ...reviewList, {review_body:review_body}
+            ])
+        })
+    }
+
+    const getReview = () =>{
+        axios.get("http://localhost:5001/api/reviews").then((response) => {
+          setReviewList(response.data)
+        })
+      }
 
     useEffect (()=>{
         getComment()
+        getReview()
     },[])
 
     // const renderComment = () => {
@@ -93,6 +116,7 @@ function details(props){
     //     })
     // }
     return(
+        <>
         <Section>
             <Container className="row">
                 <div className="col-md-4">
@@ -102,7 +126,7 @@ function details(props){
                     
                     <h4> lemon</h4>
                     <h4>citrus lemon</h4>
-                    <Button>write a Review</Button>
+                    <WriteReview onClick={ handleWriteReview } >write a Review</WriteReview>
                     <h4>plant varianst</h4>
                     <hr />
                     <div className="row">
@@ -158,107 +182,83 @@ function details(props){
 
                     <div className="reviews">
                     <h3>Reviews</h3>
-                        <div className="single-review">
-                            <div className="review-header">
-                                <span className="name">Emily Queen Tusiime</span>
-                                <span className="reviewd">reviewed</span>
-                                <span className="remedy">Ginger Tea</span>
-                                <br />
-                                <span className="date">11/11/2020</span>
-                            </div>
-                            <div className="review-body">
-                                <p>
-                                Lorem Ipsum is simply dummy text 
-                                of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard
-                                dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled
-                                it to make a type specimen book. 
-                                It has survived not only five centuries, 
-                                but also the leap into electronic typesetting,
-                                remaining essentially unchanged. 
-                                It was popularised in the 1960s with the release 
-                                of Letraset sheets containing Lorem Ipsum passages, 
-                                and more recently with desktop publishing software 
-                                like Aldus PageMaker including versions of Lorem Ipsum.
-                                </p>
-                            </div>
-                            <div className="review-footer">
-                                <span className="rating">*****</span>
-                                <h5 className="comments"> comments : 10</h5>
-                            </div>
-                            <div className="reviewComments">
-                                Rate review<span className="rating">*****</span> <br />
-                                <span className="inputComment">
-                                    <input type="text" placeholder="Add comment" />
-                                    <button primary>Comment</button>
-                                </span>
-                                
-                            </div>
-                            
-                        </div>
 
-                        <div className="single-review">
-                            <div className="review-header">
-                                <span className="name">Emily Queen Tusiime</span>
-                                <span className="reviewd">reviewed</span>
-                                <span className="remedy">Ginger Tea</span>
-                                <br />
-                                <span className="date">11/11/2020</span>
-                            </div>
-                            <div className="review-body">
-                                <p>
-                                Lorem Ipsum is simply dummy text 
-                                of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard
-                                dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled
-                                it to make a type specimen book. 
-                                It has survived not only five centuries, 
-                                but also the leap into electronic typesetting,
-                                remaining essentially unchanged. 
-                                It was popularised in the 1960s with the release 
-                                of Letraset sheets containing Lorem Ipsum passages, 
-                                and more recently with desktop publishing software 
-                                like Aldus PageMaker including versions of Lorem Ipsum.
-                                </p>
-                            </div>
 
-                            <input type="checkbox" id="comment-toggle" />
-                            <div className="review-footer">
-                                <span className="rating">*****</span>
-                                <label for="comment-toggle" className="comment-icon comments">comments</label>
-                                {/* <h5 className="comments"> comments : 10</h5> */}
-                            </div>
-                            <div className="review-comments">
-                                Rate review<span className="rating">*****</span> <br />
-                                <div className="inputComment">
-                                    <input type="text" placeholder="Add comment" onChange={handleChangeComment} />
-                                    <button primary onClick={addComment}>Comment</button>
-                                </div>
-                                <div className="comments">
-                                    <div className="">
-                                    {commentList.map((val, key) =>{
-                                        return (
-                                            <ul>
-                                                <li className="singleComment">
-                                                    <div>B</div>
-                                                    {val.comment}
-                                                </li>
-                                            </ul>
-                                        )
-                                    })}
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            
-                        </div>
+                    {reviewList.map((val, key) =>{
+                                            return (
+                                                <ul>
+                                                    <li className="single-review">
+                                                        <div>
+                                                            <div className="review-header">                                                                
+                                                                <span className="name">{val.user_full_name}</span>
+                                                                <span className="reviewd">reviewed</span>                                                                
+                                                                <span className="remedy">{val.remedy_name}</span>
+                                                                <br />                                                                
+                                                                <span className="date">{val.review_date}</span>
+                                                            </div>
+                                                            <div className="review-body">
+                                                                {val.review_body}
+                                                                {val.review_id}
+                                                            </div>
+                                                            <input type="checkbox" id="comment-toggle" />
+                                                            <div className="review-footer">
+                                                                <span className="rating">*****</span>
+                                                                <label for="comment-toggle" className="comment-icon comments">comments <span class="badge rounded-pill bg-success">99+</span></label>
+                                                                {/* <h5 className="comments"> comments : 10</h5> */}
+                                                            </div>
+                                                            <div className="review-comments">
+                                                                Rate review<span className="rating">*****</span> <br />
+                                                                <div className="inputComment">
+                                                                    <input type="text" placeholder="Add comment" onChange={handleChangeComment} />
+                                                                    <button primary onClick={addComment}>Comment</button>
+                                                                </div>
+                                                                <div className="comments">
+                                                                    <div className="">
+                                                                    {commentList.map((val, key) =>{
+                                                                        return (
+                                                                            <ul>
+                                                                                <li className="singleComment">
+                                                                                    <div>M</div>
+                                                                                    {val.comment_body}
+                                                                                </li>
+                                                                            </ul>
+                                                                        )
+                                                                    })}
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>                                                        
+                                                    </li>
+                                                </ul>
+                                            )
+                                        })}
                     </div>
                 </div>
                     
             </Container>
         </Section>
+        <Modal size="lg" show={review_body} onHide={handleCloseWriteReview} className="writeReviewModal">
+            <div className="reviewContainer" >
+                <Modal.Header className="reviewHeader" closeButton>
+                    <Modal.Title>
+                        <label for="writeReview" class="form-label">Write Review</label>
+                    </Modal.Title>
+                </Modal.Header>
+                <div className="col-12">                                
+                    <textarea rows="8" class="form-control review-text-area" id="writeReview" placeholder="" onChange={handleChangeComment} />
+                </div>
+                <Modal.Footer className="modalFooter">
+                    <Button variant="secondary" className="add" type="submit" onClick={addReview} onclick={handleCloseWriteReview}>
+                        Submit
+                    </Button>
+                    <Button variant="primary" onClick={handleCloseWriteReview} className="cancel">
+                        Cancel
+                    </Button>
+                </Modal.Footer>
+            </div>
+        </Modal>
+        </>
     )
 }
 

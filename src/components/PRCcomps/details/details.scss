@@ -33,6 +33,14 @@
         margin-left: 4rem;
         padding: 1rem;
         margin-top: .5rem;
+        list-style: none;
+        // border: 1px solid #007000;
+        background: white;
+        // background: #ccc;
+        // border-bottom: 1px solid #ccc;
+        // border-top: 1px solid #ccc;
+        // border: 1px solid #ccc;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
         .review-header{
             // border: 1px solid red;
             margin-bottom: 1rem;
@@ -119,6 +127,7 @@
 
 .singleComment{
     list-style: none;
+    margin: .3rem;
     // background-color: #007000;
     padding: .8rem 0;
     border: 1px solid #CAFFCA;
@@ -133,5 +142,45 @@
         margin:0 1rem;
         background-color: #007000;
         color: white;
+    }
+}
+
+.writeReviewModal{
+    padding-top: 10%;
+    .reviewContainer{
+        padding: 2.5rem;
+        .reviewHeader{
+            border: none;
+        }
+
+        .review-text-area{
+            min-height:5vh ;
+            height: auto;
+            padding:1rem;
+            font-size: 1.2rem;
+            color: black;
+            &:focus{
+                outline: none;
+                border: none;
+            }
+        }
+
+        .modalFooter{
+            display: flex;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border:none ;
+            .add{
+                background-color: #CAFFCA;
+                color: black;
+                border: none;
+
+            }
+            .cancel{
+                background-color: #CB5555;
+                color: black;
+                border: none;
+            }
+          }
     }
 }
