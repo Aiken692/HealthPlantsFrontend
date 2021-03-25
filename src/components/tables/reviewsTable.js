@@ -35,16 +35,46 @@ function ReviewTable(){
 
     const [reviews, setReviews] = useState([]);
 
-    const getData = async () => {
-        let url ='http://localhost:5000/api/reviews';
+    const [showDetails , setShowDetails] = useState(false);
+    const handleShowDetails = () => setShowDetails(true);
+    const handleCloseDetails = () => setShowDetails(false);
 
-        const response = await Axios.get(url);
-        // console.log('response', response);
-        setReviews(response.data);
-    }
+    const [comment_body, setComment] =useState("")
+    const [commentList, setCommentList] = useState([])
+
+    const [showDel, setShowDel] = useState(false);
+    // const handleShowDel = () => setShowDel(true);
+    const handleCloseDel = () => setShowDel(false);
+
+    // const getData = async () => {
+    //     let url ='http://localhost:5000/api/reviews';
+
+    //     const response = await Axios.get(url);
+    //     // console.log('response', response);
+    //     setReviews(response.data);
+    // }
+
+    const getData = () =>{
+        Axios.get("http://localhost:5001/api/reviews").then((response) => {
+          setReviews(response.data)
+        })
+      }
+    
+      const getComment = () =>{
+        Axios.get("http://localhost:5001/api/comments").then((response) => {
+          setCommentList(response.data)
+        })
+      }
+
+      const deleteReview =() =>{
+          Axios.delete("http://localhost:5001/api/reviews").then((response) =>{
+              console.log("review deleted");
+          })
+      }
 
     useEffect (() => {
         getData()
+        getComment()
     }, []);
 
     const renderBody = () => {
@@ -55,22 +85,16 @@ function ReviewTable(){
                     <td>{review_date}</td>
                     <td>{user_full_name}</td>
                     <td>{remedy_name}</td>
-                    <td><button type="button" className="btn btn-sm"><faIcons.FaEdit /></button></td>
-                    <td><button type="button" className="btn btn-sm"><mdIcons.MdDelete /></button></td>
+                    <td></td>
+                    <td></td>
+                    <td><button type="button" className="btn btn-sm" onClick={ handleShowDetails }><faIcons.FaEdit /></button></td>
+                    <td><button type="button" className="btn btn-sm" onClick={ deleteReview }><mdIcons.MdDelete /></button></td>
                 </tr>
             )
         })
     }
 
-    
-    const [showDetails , setShowDetails] = useState(false);
-    // const handleShowDetails = () => setShowDetails(true);
-    const handleCloseDetails = () => setShowDetails(false);
-
-    const [showDel, setShowDel] = useState(false);
-    // const handleShowDel = () => setShowDel(true);
-    const handleCloseDel = () => setShowDel(false);
- 
+     
     return(
         <div className="Table main-content">
             
@@ -92,68 +116,54 @@ function ReviewTable(){
 
                 <tbody>
                     {renderBody()}
-                    
-
                 </tbody>
             </table>
             </div>
 
             <Modal size="lg" show={showDetails} onHide={handleCloseDetails} className="viewReviewModal">
+                {reviews.map((val, key) =>{})}
                 <div className="reviewContainer" >
                     <Modal.Header className="reviewHeader" closeButton>
                         <Modal.Title>
-                            <span className="name">Emily Queen Tusiime</span>
-                            <span className="reviewd">reviewed</span>
-                            <span className="remedy">Ginger Tea</span>
-                            <br />
-                            <span className="date">11/11/2020</span>
+                        {reviews.map((val, key) =>{
+                            return(
+                                <>
+                                    <span className="name">{val.user_full_name}</span>
+                                    <span className="reviewd">reviewed</span>
+                                    <span className="remedy">{val.remedy_name}</span>
+                                    <br />
+                                    <span className="date">{val.review_date}</span>
+                                </>
+                            )
+                        })}
+
                         </Modal.Title>
                     </Modal.Header>
                     <div className="review">
-                        <p>Lorem Ipsum is simply dummy text 
-                           of the printing and typesetting industry.
-                          Lorem Ipsum has been the industry's standard
-                          dummy text ever since the 1500s, when an unknown
-                          printer took a galley of type and scrambled
-                          it to make a type specimen book. 
-                          It has survived not only five centuries, 
-                          but also the leap into electronic typesetting,
-                          remaining essentially unchanged. 
-                          It was popularised in the 1960s with the release 
-                          of Letraset sheets containing Lorem Ipsum passages, 
-                          and more recently with desktop publishing software 
-                          like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
-                        <div className="reviewFooter">
+                        <p>{reviews.map((val, key) =>{
+                            return(
+                                <div> {val.review_description}</div>
+                            )
+                        })}</p>
+                        {/* <div className="reviewFooter">
                             <span>****** comments: 10</span>
                             <span><a href="#!">Similar posts</a></span>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="reviewComments">
-                        <div className="singleComment">
-                            <div>
-                                <span className="name">Emily Queen Tusiime</span>
-                                <span className="remedy">*****</span>
-                                <span className="date">11/11/2020</span>
-                            </div>
-                            <div>
-                                <span className="comment"> This worked for me ..</span>
-                            </div>
-                            
-                        </div>
-                        <div className="singleComment">
-                            <div>
-                                <span className="name">Emily Queen Tusiime</span>
-                                <span className="remedy">*****</span>
-                                <span className="date">11/11/2020</span>
-                            </div>
-                            <div>
-                                <span className="comment">
-                                     i tried this with all ingredient and added grlic and it sorted out my cold in a day 
-                                </span>
-                            </div>
-                        </div>
-                        <a className="viewAll" href='#!'>view all comments</a>
+
+                        {commentList.map((val, key) =>{
+                            return (
+                                <ul>
+                                    <li className="singleComment">
+                                        <div>M</div>
+                                        {val.comment_body}
+                                    </li>
+                                </ul>
+                            )
+                        })}
+
+                        {/* <a className="viewAll" href='#!'>view all comments</a> */}
                     </div>
                 </div>
             </Modal>

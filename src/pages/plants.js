@@ -4,7 +4,7 @@ import Navbar from '../components/navBar/navBar';
 import { useLocation } from 'react-router-dom'
 import Aos from 'aos';
 import Footer from '../components/footer';
-import SearchArea from '../components/PRCcomps/searchArea';
+// import SearchArea from '../components/PRCcomps/searchArea';
 import GloballStyle from '../globalStyles';
 import Continer from '../components/PRCcomps/container';
 
@@ -36,7 +36,7 @@ function Plants() {
             <GloballStyle/>
             <Navbar toggle={toggle}/>
             <Dropdown isOpen={isOpen} toggle={toggle}/>
-            <SearchArea />
+            {/* <SearchArea /> */}
             <Continer pageName="Plants"/>
             <Footer/>
         </>

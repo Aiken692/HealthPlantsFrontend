@@ -10,10 +10,11 @@ import Card  from "react-bootstrap/Card";
 
 const Section = styled.section`
     width: 100%;
-    min-height: 50vh;
+    min-height: 100vh;
 
     // working on small changes
     display: flex;
+    flex-direction: column;
     
 `;
 
@@ -23,12 +24,51 @@ const ContainerOne = styled.div`
     margin: auto;
 `;
 
+const SearchSection = styled.section`
+    color: #fff;
+    width: 100%;
+    min-height: 50vh;
+    
+`;
+
+const SearchArea = styled.div`
+position:absolute;
+padding-left:20%;
+width:100%;
+height:50vh;
+background-size: cover;
+background-image: url('https://images.unsplash.com/photo-1512238701577-f182d9ef8af7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80');
+/* background-color:black; */
+
+`;
+
+const Search = styled.input`
+border-radius:20px;
+font-size: 20px;
+background: white;
+width:70%;
+border: 1px solid #fff;
+margin-top: 180px;
+position:relative;
+margin-left:0;
+margin-right:0;
+padding:.3rem;
+padding-left:1rem;
+background:transparent;
+&:focus{
+    outline:none;
+    background:white;
+}
+::placeholder{
+    color:white;    
+}
+`;
+
 
 function Container(props){
 
     const [plants, setPlants] = useState([]);
-
-    
+    const [searchTerm, setSearchTerm] = useState("")  
 
 
 
@@ -50,7 +90,13 @@ function Container(props){
 
     const renderBody = () => {
 
-        return plants && plants.map(({plant_id, plant_common_name, plant_latin_name, plant_image, plant_description}) => {
+        return plants && plants.filter((val) =>{
+            if(searchTerm == ""){
+                return val
+            }else if(val.plant_common_name.toLowerCase().includes(searchTerm.toLowerCase())){
+                return val
+            }
+        }).map(({plant_id, plant_common_name, plant_latin_name, plant_image, plant_description}) => {
 
             // console.log(plant_image)
             return (
@@ -116,6 +162,15 @@ function Container(props){
     const {pageName} = props
     return(
         <Section>
+            
+            <SearchSection>
+                <SearchArea className="">
+                    <Search type="text" placeholder="search" onChange={(event) =>{
+                    setSearchTerm(event.target.value)
+                }}/>
+                </SearchArea>
+            </SearchSection>
+            
             <ContainerOne className="row">
                 <div className="col-md-4">
                     <h1>Top Reviews</h1>

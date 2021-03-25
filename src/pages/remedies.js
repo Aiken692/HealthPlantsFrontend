@@ -5,7 +5,7 @@ import Dropdown from '../components/dropdown';
 import Navbar from '../components/navBar/navBar';
 import Footer from '../components/footer';
 import RemediesContainer from '../components/PRCcomps/remediesContainer';
-import SearchArea from '../components/PRCcomps/searchAreaRem';
+// import SearchArea from '../components/PRCcomps/searchAreaRem';
 import GloballStyle from '../globalStyles';
 
 
@@ -36,7 +36,7 @@ function Remedies() {
             <GloballStyle/>
             <Navbar toggle={toggle}/>
             <Dropdown isOpen={isOpen} toggle={toggle}/>
-            <SearchArea />
+            {/* <SearchArea /> */}
             <RemediesContainer pageName="Remedies"/>
             <Footer/>
         </>

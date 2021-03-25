@@ -23,6 +23,8 @@ background-color:#CAFFCA;
 
 function Table(){
 
+    const [searchTerm, setSearchTerm] = useState("")
+
     const [showAddPlant, setShowAddPlant] = useState(false);
     const handleCloseAddPlant = () => setShowAddPlant(false);
     const handleShowAddPlant = () => setShowAddPlant(true);
@@ -69,7 +71,13 @@ function Table(){
     }
 
     const renderBody = () => {
-        return plants && plants.map(({plant_id, plant_common_name, plant_latin_name}) => {
+        return plants && plants.filter((val) =>{
+            if(searchTerm == ""){
+                return val
+            }else if(val.plant_common_name.toLowerCase().includes(searchTerm.toLowerCase())){
+                return val
+            }
+        }).map(({plant_id, plant_common_name, plant_latin_name}) => {
             console.log(plants);
             return (
                 <tr key = {plant_id}>
@@ -119,7 +127,9 @@ function Table(){
     return (
         <>
         <div className="Table main-content">
-            <Input type="text" placeholder="search"></Input>
+            <Input type="text" placeholder="search" onChange={(event) =>{
+                    setSearchTerm(event.target.value)
+                }}></Input>
             {/* <Button className="ml-4" onclick={handleShowAddPlant}>Add</Button> */}
             <Button variant="primary" onClick={handleShowAddPlant} className="ml-4">Add</Button>
             <table className="table tableStriped table1">

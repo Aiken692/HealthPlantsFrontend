@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Section = styled.section`
+const SearchSection = styled.section`
     color: #fff;
     width: 100%;
     min-height: 50vh;
@@ -43,11 +43,11 @@ background:transparent;
 
 function searchArea(){
     return(
-        <Section>
+        <SearchSection>
             <SearchArea className="">
                 <Search type="text" placeholder="search"/>
             </SearchArea>
-        </Section>
+        </SearchSection>
     )
 }
 
