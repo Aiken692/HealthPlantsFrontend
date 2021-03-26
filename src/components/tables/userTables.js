@@ -31,6 +31,7 @@ background-color:#CAFFCA;
 
 function UserTable( props ){
 
+    const [searchTerm, setSearchTerm] = useState("")
 
     const [showAdd, setShowAdd] = useState(false);
     const handleCloseAdd = () => setShowAdd(false);
@@ -86,7 +87,13 @@ function UserTable( props ){
 
 
     const renderBody = () => {
-        return users && users.map(({user_id, user_full_name, email, phone_number}) => {
+        return users && users.filter((val) =>{
+            if(searchTerm == ""){
+                return val
+            }else if(val.user_full_name.toLowerCase().includes(searchTerm.toLowerCase())){
+                return val
+            }
+        }).map(({user_id, user_full_name, email, phone_number}) => {
             return (
                 <tr key = {user_id}>
                     <td>{user_id}</td>
@@ -154,7 +161,9 @@ const onChange= (e) => {
 
             <div className="clientTable">
 
-                <Input type="text" placeholder="search"></Input>
+                <Input type="text" placeholder="search" onChange={(event) =>{
+                    setSearchTerm(event.target.value)
+                }}></Input>
                 <TableHeader>                
                     <h3>Client</h3>
                 </TableHeader>
@@ -175,7 +184,9 @@ const onChange= (e) => {
 
             <div className="AdminTable">
 
-                <Input type="text" placeholder="search"></Input>
+                <Input type="text" placeholder="search" onChange={(event) =>{
+                    setSearchTerm(event.target.value)
+                }}></Input>
 
                 <TableHeader>                    
                     <h3>Admin</h3>
