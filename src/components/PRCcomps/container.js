@@ -142,12 +142,8 @@ function Container(props){
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <p class="card-title">Emily Queen Tusiime</p>
-                                <p>Lorem Ipsum is simply dummy text 
-                                                    of the printing and typesetting industry.
-                                                   
-                                                     </p>
-                                    
+                                <p class="card-title">{plant_common_name}</p>
+                                <Link to={`/plant/${plant_id}`}>Read More...</Link>                        
                             </div>
                         </div>
                     </div>

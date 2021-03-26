@@ -132,20 +132,17 @@ function Container(props){
 console.log(plants)
 
     const renderBodyTR = () => {
-        return plants && plants.map(({plant_id, plant_common_name, plant_latin_name, plant_image, plant_description}) => {
+        return plants && plants.map(({remedy_id, remedy_name, remedy_preparation, remedy_image}) => {
             return (
                 <div class="card mb-3" style={{maxWidth: '540px'}}>
                 <div class="row g-0">
                     <div class="col-md-4">
-                    <img src={plant_image} class="card-img-top" alt="img here" />
+                    <img src={remedy_image} class="card-img-top" alt="img here" />
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">{plant_id}</h5>
-                            <h5 class="card-title">{plant_common_name}</h5>
-                            <h5 class="card-title">{plant_latin_name}</h5>
-                            <p class="card-text">{plant_description}</p>
-                            
+                            <p class="card-text">{remedy_name}</p>    
+                            <Link to={`/remedy/${remedy_id}`}>Read More...</Link>                    
                         </div>
                     </div>
                 </div>
