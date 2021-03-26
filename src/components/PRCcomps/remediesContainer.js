@@ -136,10 +136,10 @@ console.log(plants)
             return (
                 <div class="card mb-3" style={{maxWidth: '540px'}}>
                 <div class="row g-0">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                     <img src={remedy_image} class="card-img-top" alt="img here" />
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="card-body">
                             <p class="card-text">{remedy_name}</p>    
                             <Link to={`/remedy/${remedy_id}`}>Read More...</Link>                    

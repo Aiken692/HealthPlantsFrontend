@@ -135,12 +135,12 @@ function Container(props){
             return (
                 <div class="card mb-4" style={{maxWidth: '540px'}}>
                     <div class="row g-0">
-                        <div class="col-md-4" >
+                        <div class="col-md-6" >
                             <img src={plant_image} class="card-img-top" alt="img here" />
                             
                             
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <div class="card-body">
                                 <p class="card-title">{plant_common_name}</p>
                                 <Link to={`/plant/${plant_id}`}>Read More...</Link>                        
